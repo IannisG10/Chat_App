@@ -1,8 +1,8 @@
 "use client"
 import { ProductType } from "@/types/ProductType";
 import axios from "axios";
-
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export default function Home() {
   const [data,setData] = useState<ProductType[] | null>(null)
@@ -19,7 +19,12 @@ export default function Home() {
     <div >
       <div className=" grid  grid-cols-4 gap-4 p-5">
         {data?.map((item,index) =>(
-          <div key={index} className=" flex flex-col  p-4 w-3/4  cursor-pointer">
+
+          <motion.div key={index} 
+          initial={{opacity: 0, y: 50}}
+          animate={{opacity: 1, y: 0}}
+          transition={{duration: 0.7}}
+          className=" flex flex-col  p-4 w-3/4  cursor-pointer">
             <div className=" flex justify-center  border border-gray-100 p-2 w-full">
               <img src={item.image} alt={item.title} className=" size-24" />
             </div>
@@ -31,7 +36,10 @@ export default function Home() {
             <button className="w-full bg-slate-800 hover:bg-slate-900 transition duration-150 ease-in-out p-2 text-white font-medium">
               Voir
             </button>
-          </div>
+          </motion.div>
+          // <div key={index} className=" flex flex-col  p-4 w-3/4  cursor-pointer">
+            
+          // </div>
         ))}
       </div>
     </div>

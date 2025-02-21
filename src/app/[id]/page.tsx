@@ -7,7 +7,6 @@ const getProdoductDetails =  async (id: string): Promise<ProductType> => {
     return response.json()
 
 }
-
 interface ProductDetailsProps {
     params: {id : string}
 }
@@ -16,25 +15,27 @@ const ProductDetails = async ({params}: ProductDetailsProps)=> {
     const {id} = params
     const productDetail = await getProdoductDetails(id)
     return(
-        <div className="flex flex-col  p-4 w-3/4  cursor-pointer">
-            <div  className=" flex justify-center  border border-gray-100 p-2 w-full">
-                <img src={productDetail.image} alt={productDetail.title} className=" size-36" />
-            </div>
-            <div className=" flex flex-col gap-1 w-full px-4 border-x border-b py-1 border-gray-100">
-              <div>
-                    <p className=" font-bold text-lg w-3/4">{productDetail.title}</p>
-                    <p className=" text-xs text-gray-400 font-medium">{productDetail.category}</p>
-                    <p className=" text-slate-800 text-sm font-medium font-serif w-3/5">{productDetail.description}</p>
-                    <p className=" font-semibold text-base">{productDetail.price}€</p>
-              </div>
-              <div className=" flex gap-1">
-                    <div className=" flex justify-center items-center p-1 border
-                    border-red-200 hover:bg-red-300 transition-all duration-150">
-                        <Trash2 color="red" size={20}/>
+        <div className=" flex justify-center items-center">
+            <div className="flex flex-col  p-4 w-2/4  cursor-pointer">
+                <div  className=" flex justify-center  border border-gray-100 p-2 w-full">
+                    <img src={productDetail.image} alt={productDetail.title} className=" size-36" />
+                </div>
+                <div className=" flex flex-row gap-1 justify-between items-end w-full px-4 border-x border-b py-1 border-gray-100">
+                    <div>
+                            <p className=" font-bold text-lg w-3/4">{productDetail.title}</p>
+                            <p className=" text-xs text-gray-400 font-medium">{productDetail.category}</p>
+                            <p className=" text-slate-800 text-sm font-medium font-serif w-3/5">{productDetail.description}</p>
+                            <p className=" font-semibold text-lg">{productDetail.price}€</p>
                     </div>
-                    <div className=" flex justify-center items-center p-1 border 
-                    border-blue-200 hover:bg-blue-300 transition-all duration-150">
-                        <PenLine color="blue"size={20}/>
+                    <div className=" flex gap-1">
+                            <div className=" flex justify-center items-center p-1 border w-fit h-fit
+                            border-blue-200 hover:bg-blue-300 transition-all duration-150">
+                                <PenLine color="blue"size={20}/>
+                            </div>
+                            <div className=" flex justify-center items-center p-1 border w-fit h-fit
+                            border-red-200 hover:bg-red-300 transition-all duration-150">
+                                <Trash2 color="red" size={20}/>
+                            </div>
                     </div>
                 </div>
             </div>

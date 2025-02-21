@@ -1,6 +1,6 @@
 import "./globals.css";
 import TopBar from "@/components/layout/TopBar";
-import { Provider } from 'react-redux'
+import { ReduxProvider } from "@/lib/provider";
 
 export default function RootLayout({children}: Readonly<{
   children: React.ReactNode;
@@ -10,8 +10,10 @@ export default function RootLayout({children}: Readonly<{
       <html lang="en">
         <body
         >
+          <ReduxProvider>
           <TopBar/>
-          {children}
+            {children}
+          </ReduxProvider>
         </body>
       </html>
     

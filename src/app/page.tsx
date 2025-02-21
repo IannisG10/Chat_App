@@ -4,23 +4,30 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useAppDispatch,useAppSelector } from "@/hook/useProduct";
+import { fetchProduct } from "@/redux/slice/productSlice";
 
 
 export default function Home() {
   const [data,setData] = useState<ProductType[] | null>(null)
 
+  const dispatch = useAppDispatch()
+
+  const product = useAppSelector(state => state.product.product)
+
   useEffect(() =>{
-    const fetchProduct =  () =>{
-      axios.get("https://fakestoreapi.com/products").then((res)=>
-        setData(res.data)
-      ).catch(error=> console.error(error))
-    }
-    fetchProduct()
+    // const fetchProduct =  () =>{
+    //   axios.get("https://fakestoreapi.com/products").then((res)=>
+    //     setData(res.data)
+    //   ).catch(error=> console.error(error))
+    // }
+    // fetchProduct()
+    dispatch(fetchProduct())
   },[])
   return (
     <div >
       <div className=" grid  grid-cols-4 gap-4 p-5">
-        {data?.map((item,index) =>(
+        {product.map((item,index) =>(
           <motion.div key={index} 
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}

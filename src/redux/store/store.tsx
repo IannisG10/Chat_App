@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit/react";
 import productSlice from "../slice/productSlice";
+import searchSlice from "../slice/searchSlice";
 
 
 export const makeStore = ()=> {
     return configureStore({
         reducer: {
-            product: productSlice
+            product: productSlice,
+            search: searchSlice
         }
     })
 }

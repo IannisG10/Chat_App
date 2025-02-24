@@ -1,12 +1,18 @@
+"use client"
+
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,PayloadAction } from "@reduxjs/toolkit";
 import { ProductType } from "@/types/ProductType";
 interface ProductState {
-    product: ProductType[]
+    product: ProductType[];
+    productDetail: ProductType[];
+    isDelete: boolean
 }
 
 const initialState: ProductState = {
-    product: []
+    product: [],
+    productDetail: [],
+    isDelete: false
 }
 
 export const fetchProduct = createAsyncThunk(
@@ -24,18 +30,39 @@ export const fetchProduct = createAsyncThunk(
     }
 )
 
+export const fetchProductDetail = createAsyncThunk(
+    'product/fetchProductDetil',
+    async (id: string | null) => {
+        try {
+            const response = await fetch(`https://fakestoreapi.com/products/${id}`)
+            const data = await response.json()
+
+            return data
+        } catch (error) {
+            console.error("Imposssible de fetch les details ")
+        }
+    }
+)
+
 
 const productSlice = createSlice({
     name: 'product',
     initialState,
-    reducers:{},
+    reducers:{
+        setIsDelete: (state,action: PayloadAction<boolean>) => {
+            state.isDelete = action.payload
+        }
+    },
     extraReducers: (builder)=>{
         builder.addCase(fetchProduct.fulfilled,(state,action)=>{
             state.product = action.payload
+        }),
+        builder.addCase(fetchProductDetail.fulfilled,(state,action) =>{
+            state.productDetail = action.payload
         })
         
     }
 })
 
-
+export const {setIsDelete} = productSlice.actions
 export default productSlice.reducer

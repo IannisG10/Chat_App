@@ -1,47 +1,33 @@
-"use client"
-import { ProductType } from "@/types/ProductType";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { About } from "@/components/sections/About/About";
+import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
+import { Footer } from "@/components/sections/Footer/Footer";
+import { Header } from "@/components/sections/Header/Header";
+import { Hero } from "@/components/sections/Hero/Hero";
+import { NavBar } from "@/components/sections/NavBar/NavBar";
+import { IconRouteType } from "@/entities/compoent-entities/header-entities";
+import {BiLogInCircle} from "react-icons/bi"
 
 export default function Home() {
-  const [data,setData] = useState<ProductType[] | null>(null)
-
-  useEffect(() =>{
-    const fetchProduct =  ()=>{
-      axios.get("https://fakestoreapi.com/products").then((res)=>
-        setData(res.data)
-      ).catch(error=> console.error(error))
+  const icoList: IconRouteType[] = [
+    {
+      href: "/authentication/Signup",
+      iconComponent: <BiLogInCircle size={27}/>
     }
-    fetchProduct()
-  },[])
+  ]
   return (
-    <div >
-      <div className=" grid  grid-cols-4 gap-4 p-5">
-        {data?.map((item,index) =>(
-
-          <motion.div key={index} 
-          initial={{opacity: 0, y: 50}}
-          animate={{opacity: 1, y: 0}}
-          transition={{duration: 0.7}}
-          className=" flex flex-col  p-4 w-3/4  cursor-pointer">
-            <div className=" flex justify-center  border border-gray-100 p-2 w-full">
-              <img src={item.image} alt={item.title} className=" size-24" />
-            </div>
-            <div className=" flex flex-col gap-1 w-full px-4 border-x border-b py-1 border-gray-100">
-              <p className=" font-semibold text-sm w-3/4">{item.title}</p>
-              <p className=" text-xs text-gray-400 font-medium">{item.category}</p>
-              <p className=" font-semibold text-sm">{item.price}€</p>
-            </div>
-            <button className="w-full bg-slate-800 hover:bg-slate-900 transition duration-150 ease-in-out p-2 text-white font-medium">
-              Voir
-            </button>
-          </motion.div>
-          // <div key={index} className=" flex flex-col  p-4 w-3/4  cursor-pointer">
-            
-          // </div>
-        ))}
-      </div>
+    <div className="p-4">
+      <Header  
+        barComponent={<NavBar firstItem="Acceuil" secondItem="A propos" thirdItem="Contact"/>}
+        iconList={icoList}
+      />
+      <Hero 
+        titleHero="Découvrez notre application ChatBot" 
+        buttonContent="Démarrer"
+        description="Vous cherchez une manière rapide fluide et intuitive pour rester en connecté avec vos proches,collègues ou communauté ? ChatBot est là pour transformer votre façon de communiquer !"
+        />
+      <About/>
+      <FeedBack/>
+      <Footer/> 
     </div>
   );
 }

@@ -10,10 +10,9 @@ export default function RootLayout({children}: Readonly<{
       <html lang="en">
         <body
         >
-          <ReduxProvider>
-          <TopBar/>
+          
             {children}
-          </ReduxProvider>
+        
         </body>
       </html>
     

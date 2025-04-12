@@ -3,10 +3,10 @@ import React from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
-import Link from "next/link";
 import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import { InputField } from "@/entities/application-entities/authentication";
+import Link from "next/link";
 
 export const Login = () => {
     
@@ -33,11 +33,11 @@ export const Login = () => {
                         <input type="checkbox"  />
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </div>
-                    <div className=" w-full">
+                    <Link className=" w-full" href="/friend">
                         <button type="submit" className=" bg-[#ebdb79] hover:bg-[#eede74] w-full p-2 rounded-xl font-semibold">
                             Se connecter
                         </button>
-                    </div>
+                    </Link>
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signup" className=" text-sm text-gray-400">S'inscrire</Link>
                     </div>

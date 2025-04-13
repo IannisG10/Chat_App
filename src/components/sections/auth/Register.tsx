@@ -27,10 +27,10 @@ export const Register = () => {
                         <ExternalAuth authTittle="Faebook" src="/logo/Facebook.png" alt="Logo Faebook"/>
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                        <InputAuth placeholder="Nom d'utilisateur" label="username"/>
-                        <InputAuth placeholder="email" label="email"/>
-                        <InputAuth placeholder="mot de passe" label="password"/>
-                        <InputAuth placeholder="confirmation mot de passe" label="password"/>
+                        <InputAuth placeholder="Nom d'utilisateur" label="username" options={{required:"Nom d'utilisateur requis "}}/>
+                        <InputAuth placeholder="email" label="email" options={{required:"email d'utilisateur requis "}}/>
+                        <InputAuth placeholder="mot de passe" label="password" options={{required:"Veuillez saisir un mot de passe "}}/>
+                        <InputAuth placeholder="confirmation mot de passe" label="password" options={{required:"Confirmer votre mot de passe "}}/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />

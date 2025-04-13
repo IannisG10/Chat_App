@@ -5,15 +5,16 @@ import { InputProps } from "@/entities/compoent-entities/input-entities"
 import { InputField } from "@/entities/application-entities/authentication"
 import {useFormContext} from "react-hook-form"
 
-export const InputAuth = ({placeholder,label} : InputProps) => {
-    const {register} = useFormContext<InputField>()
+export const InputAuth = ({placeholder,label,options} : InputProps) => {
+    const {register,formState: {errors}} = useFormContext<InputField>()
     return(
         <>
            <Input  
                 placeholder={placeholder}
                 className=" rounded-xl p-5 w-full border-black shadow-none"
-                {...register(label)}
+                {...register(label,options)}
            />
+           {errors[label] && <span className=" text-sm text-red-400">{errors[label]?.message}</span>}
         </>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { SearchBarConversation } from "@/components/SearchBar/SearchBarConversation";
+import { SearchBarConversation } from "@/components/block/SearchBar/SearchBarConversation";
 import { messageList } from "@/data/messageList";
 import {BiCheckCircle,BiSolidCheckCircle} from "react-icons/bi"
 import styles from "@/lib/scrollbar.module.css"

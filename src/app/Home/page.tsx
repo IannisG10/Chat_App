@@ -1,8 +1,8 @@
 import React from "react";
-import { FriendCarrousel } from "@/components/Friend/FriendCarrousel";
+import { FriendCarrousel } from "@/components/block/FriendCarrousel/FriendCarrousel";
 import { Header } from "@/components/sections/Header/Header";
 import { Hero } from "@/components/sections/Hero/Hero";
-import { NavBar } from "@/components/sections/NavBar/NavBar";
+import { NavBar } from "@/components/block/NavBar/NavBar";
 import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
 import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/entities/compoent-entities/header-entities";

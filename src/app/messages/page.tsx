@@ -1,7 +1,7 @@
 import React from "react";
 import { MessageHeader } from "@/components/sections/Header/MessageHeader";
-import { SideMessageList } from "./SideMessageList";
-import { Conversation } from "./Conversation";
+import { SideMessageList } from "../../components/sections/SideMessageList/SideMessageList";
+import { Conversation } from "../../components/sections/Conversation/Conversation";
 
 export default function Message(){
     return(

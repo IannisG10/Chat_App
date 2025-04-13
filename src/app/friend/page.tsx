@@ -1,7 +1,7 @@
 import React from "react"
 import { Header } from "@/components/sections/Header/Header"
-import { FriendSuggestion } from "@/components/Friend/FriendSuggestion"
-import { SearchBar } from "@/components/SearchBar/SearchBar"
+import { FriendSuggestion } from "@/components/block/FriendSuggestion/FriendSuggestion"
+import { SearchBar } from "@/components/block/SearchBar/SearchBar"
 import { IconRouteType } from "@/entities/compoent-entities/header-entities"
 import {BiHome,BiBell,BiLogOutCircle} from "react-icons/bi"
 

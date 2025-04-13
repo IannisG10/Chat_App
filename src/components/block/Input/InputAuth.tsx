@@ -14,7 +14,9 @@ export const InputAuth = ({placeholder,label,options} : InputProps) => {
                 className=" rounded-xl p-5 w-full border-black shadow-none"
                 {...register(label,options)}
            />
-           {errors[label] && <span className=" text-sm text-red-400">{errors[label]?.message}</span>}
+           <div className=" flex justify-center font-medium">
+                {errors[label] && <span className=" text-sm  text-red-600">{errors[label]?.message}</span>}
+           </div>
         </>
     )
 }

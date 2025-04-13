@@ -11,6 +11,7 @@ import { submitForm } from "@/actions/submitForm";
 
 export const Register = () => {
     const methods = useForm<InputField>()
+    const passwordValue = methods.watch("password")
 
     return(
         <FormProvider {...methods}>
@@ -30,7 +31,9 @@ export const Register = () => {
                         <InputAuth placeholder="Nom d'utilisateur" label="username" options={{required:"Nom d'utilisateur requis "}}/>
                         <InputAuth placeholder="email" label="email" options={{required:"email d'utilisateur requis "}}/>
                         <InputAuth placeholder="mot de passe" label="password" options={{required:"Veuillez saisir un mot de passe "}}/>
-                        <InputAuth placeholder="confirmation mot de passe" label="password" options={{required:"Confirmer votre mot de passe "}}/>
+                        <InputAuth placeholder="confirmation mot de passe" label="confirm_password" 
+                                    options={{required:"Confirmer votre mot de passe ",
+                                    validate: (v) => v !== passwordValue && "Le mot de passe ne correspondent ps"}}/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />

@@ -3,21 +3,18 @@ import React from "react";
 import {BiChevronLeft} from "react-icons/bi"
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import { InputAuth } from "@/components/block/Input/InputAuth";
+import { InputField } from "@/entities/application-entities/authentication";
 import Link from "next/link";
 import { FormProvider } from "react-hook-form"
 import { useForm } from "react-hook-form";
-import { InputField } from "@/entities/application-entities/authentication";
+import { submitForm } from "@/actions/submitForm";
 
 export const Register = () => {
     const methods = useForm<InputField>()
-    const onSubmit = (data: InputField) => {
-        console.log("Formulaire validé :",data);
-        methods.reset()
-    }
 
     return(
         <FormProvider {...methods}>
-            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit(onSubmit)}>
+            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit((data) => submitForm(data,methods))}>
                 <div className=" flex flex-col justify-center  gap-3 w-1/4">
                     <div className=" flex justify-between items-center w-full">
                         <div className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">

@@ -3,7 +3,7 @@ import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
 import { Footer } from "@/components/sections/Footer/Footer";
 import { Header } from "@/components/sections/Header/Header";
 import { Hero } from "@/components/sections/Hero/Hero";
-import { NavBar } from "@/components/sections/NavBar/NavBar";
+import { NavBar } from "@/components/block/NavBar/NavBar";
 import { IconRouteType } from "@/entities/compoent-entities/header-entities";
 import {BiLogInCircle} from "react-icons/bi"
 

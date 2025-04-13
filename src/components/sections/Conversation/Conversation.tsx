@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { messageList } from "@/data/messageList";
-import { InputMessage } from "../../components/block/Input/InputMessage";
+import { InputMessage } from "../../block/Input/InputMessage";
 
 export const Conversation = ()=>{
     const conversation = messageList.slice(0,4)

@@ -8,8 +8,8 @@ interface HeaderProps {
 }
 export const Header = ({barComponent,iconList}: HeaderProps)=> {
     return(
-        <div className="flex justify-between items-center">
-            <h1 className=" font-bold text-2xl">ChatBot.</h1>
+        <div className="flex justify-between items-center gap-3">
+            <h1 className=" md:font-bold font-extrabold md:text-2xl text-lg">ChatBot.</h1>
             {barComponent}
             <div className=" flex items-center">
                 {iconList.map((item,index)=> (

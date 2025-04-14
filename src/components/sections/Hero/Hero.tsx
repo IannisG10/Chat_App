@@ -4,7 +4,7 @@ import { HeroSectionType } from "@/entities/compoent-entities/hero-entities"
 
 export const Hero = ({titleHero,description,buttonContent}: HeroSectionType)=> {
     return(
-        <div className=" flex md:justify-around justify-center items-center py-5 my-4">
+        <div className=" flex md:justify-around justify-center items-center md:py-5 py-3 md:my-4 my-2">
             <div className=" flex flex-col md:w-1/3 w-9/12 gap-4 items-center my-6 mx-4 ">
                 <h1 className=" text-center md:font-normal font-medium md:text-5xl text-4xl">{titleHero}</h1>
                 <p className=" text-center md:text-xs text-sm text-gray-700 ">{description}</p>

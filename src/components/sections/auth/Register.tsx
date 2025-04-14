@@ -16,12 +16,12 @@ export const Register = () => {
     return(
         <FormProvider {...methods}>
             <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit((data) => submitForm(data,methods))}>
-                <div className=" flex flex-col justify-center  gap-3 w-1/4">
+                <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
-                        <div className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">
+                        <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">
                             <BiChevronLeft size={28} />
-                        </div>
-                        <h3 className=" text-3xl font-bold">S'inscrire</h3>
+                        </Link>
+                        <h3 className=" md:text-3xl text-2xl font-bold">S'inscrire</h3>
                     </div>
                     <div className=" flex w-full gap-2">
                         <ExternalAuth authTittle="Google" src="/logo/Google.png" alt="Logo Google" />
@@ -45,7 +45,7 @@ export const Register = () => {
                         </button>
                     </div>
                     <div className=" flex justify-center">
-                        <Link href="/authentication/Signin" className="text-sm text-gray-400">Se connecter</Link>
+                        <Link href="/authentication/Signin" className="text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>
                     </div>
                 </div>
             </form>

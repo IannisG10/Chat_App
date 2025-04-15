@@ -7,7 +7,7 @@ import styles from "@/lib/scrollbar.module.css"
 
 export const SideMessageList = ()=> {
     return(
-        <div className=" w-1/4 bg-white h-full flex flex-col items-center pl-4 pr-1.5 pt-2 rounded-xl">
+        <div className=" md:w-1/4 w-full bg-white h-full flex flex-col items-center pl-4 pr-1.5 pt-2 rounded-xl">
             <SearchBarConversation/>
             <div className={`overflow-y-auto flex flex-col items-center gap-6 w-full pt-4 ${styles.scrollbar}`}>
                 {messageList.map((item,index) => (

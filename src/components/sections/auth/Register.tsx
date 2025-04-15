@@ -30,8 +30,8 @@ export const Register = () => {
                     <div className="w-full flex flex-col gap-2">
                         <InputAuth placeholder="Nom d'utilisateur" label="username" options={{required:"Nom d'utilisateur requis "}}/>
                         <InputAuth placeholder="email" label="email" options={{required:"email d'utilisateur requis "}}/>
-                        <InputAuth placeholder="mot de passe" label="password" options={{required:"Veuillez saisir un mot de passe "}}/>
-                        <InputAuth placeholder="confirmation mot de passe" label="confirm_password" 
+                        <InputAuth placeholder="mot de passe" type="password" label="password" options={{required:"Veuillez saisir un mot de passe "}}/>
+                        <InputAuth placeholder="confirmation mot de passe" type="password" label="confirm_password" 
                                     options={{required:"Confirmer votre mot de passe ",
                                     validate: (v) => v !== passwordValue && "Le mot de passe ne correspondent ps"}}/>
                     </div>

@@ -4,7 +4,7 @@ import {BiSearch,BiSolidMoon} from "react-icons/bi"
 
 export const SearchBar = ()=> {
     return(
-        <div className=" flex items-center bg-[#2c2c2c] px-2 w-1/4 rounded-3xl">
+        <div className=" flex items-center bg-[#2c2c2c] px-2 md:w-1/4 w-3/4 rounded-3xl">
             <BiSearch size={25} color="white"/>
             <input type="text" 
             className=" text-white outline-none w-full border-none placeholder-[#c8c8c8] bg-[#2c2c2c] p-2"

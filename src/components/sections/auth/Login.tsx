@@ -27,7 +27,7 @@ export const Login = () => {
                     </div>
                     <div className="w-full flex flex-col gap-2">
                         <InputAuth placeholder="Nom d'utilisateur" label="username" options={{required:"Nom requis"}}/>
-                        <InputAuth placeholder="mot de passe" label="password" options={{required:"Mot de passe obligatoire"}}/>
+                        <InputAuth placeholder="mot de passe" type="password" label="password" options={{required:"Mot de passe obligatoire"}}/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />

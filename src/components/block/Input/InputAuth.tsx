@@ -1,14 +1,21 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import { Input } from "@/components/ui/Input"
 import { InputProps } from "@/entities/compoent-entities/input-entities"
 import { InputField } from "@/entities/application-entities/authentication"
 import {useFormContext} from "react-hook-form"
-import { Eye,EyeClosed } from "lucide-react"
+import { EyeClosed,Eye } from "lucide-react"
 
 export const InputAuth = ({placeholder,label,options,type} : InputProps) => {
+    const [isVisiblePassword,setIsVisiblePassword] = useState<boolean>(false)
+
+    const isPassword = type === "password" 
+    const inputType = isPassword ? (isVisiblePassword ? "text" : "password") : type
+    const tooglePassword_visibility = () =>{
+        setIsVisiblePassword(!isVisiblePassword)
+    }
     const {register,formState: {errors}} = useFormContext<InputField>()
-    const isPassword = type === "password" && (label === "password" || label === "confirm_password")
+
     return(
         <> 
             <div className=" relative">
@@ -16,9 +23,14 @@ export const InputAuth = ({placeholder,label,options,type} : InputProps) => {
                         placeholder={placeholder}
                         className=" rounded-xl p-5 w-full border-black shadow-none"
                         {...register(label,options)}
-                        type={type}
+                        type={inputType}
                 />
-                {isPassword && <EyeClosed size={19} className=" absolute top-2.5 right-1.5 cursor-pointer"/>}
+                {isVisiblePassword ? 
+                    <Eye size={19} className="absolute top-1 right-2" 
+                        onClick={tooglePassword_visibility}/> : 
+                    <EyeClosed className=" absolute top-1 right-2" 
+                        onClick={tooglePassword_visibility} size={19}/>}
+                
             </div>
            <div className=" flex justify-center font-medium">
                 {errors[label] && <span className=" text-sm  text-red-600">{errors[label]?.message}</span>}

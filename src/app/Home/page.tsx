@@ -30,7 +30,7 @@ export default function Acceuil(){
                 iconList={icoList}
             />
             <Hero
-                titleHero="Bienvenue à ChatBot ,Mario Ralison"
+                titleHero="Bienvenue à ChatBot, GUERRA Iannis"
                 description="Vous cherchez une manière rapide fluide et intuitive pour rester en connecté avec vos proches,collègues ou communauté ? ChatBot est là pour transformer votre façon de communiquer !"
                 buttonContent="Voir les discussions"
             />

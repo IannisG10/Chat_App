@@ -6,7 +6,7 @@ import { InputMessage } from "../../block/Input/InputMessage";
 export const Conversation = ()=>{
     const conversation = messageList.slice(0,4)
     return(
-        <div className=" flex flex-col flex-1 justify-between bg-white h-full rounded-xl px-5 py-3">
+        <div className=" md:flex hidden flex-col flex-1 justify-between bg-white h-full rounded-xl px-5 py-3">
             <div className=" flex items-center gap-1 border-b border-gray-300 px-2 py-3">
                 <Image src="/img/userprofile.jpeg"
                     alt="profile phot"

@@ -8,9 +8,9 @@ export const MessageHeader = () => {
         <div className=" flex justify-between items-center">
             <div className="flex items-center" >
                 <Link href="/Home">
-                    <BiChevronLeft size={35} className="p-1 cursor-pointer rounded-full hover:bg-gray-50"/>
+                    <BiChevronLeft size={35} className=" md:p-1 p-0.5 cursor-pointer rounded-full hover:bg-gray-50"/>
                 </Link>
-                <h1 className=" text-2xl font-semibold ">Mes conversations</h1>
+                <h1 className=" md:text-2xl text-xl font-semibold ">Mes conversations</h1>
             </div>
             <div className=" flex items-center gap-2">
                 <Image
@@ -18,9 +18,9 @@ export const MessageHeader = () => {
                     alt="photo de profile"
                     width={30}
                     height={30}
-                    className=" rounded-full"
+                    className=" rounded-full mr-1"
                 />
-                <span className="font-semibold text-lg">GUERRA Iannis</span>
+                <span className=" md:block hidden font-semibold text-lg">GUERRA Iannis</span>
             </div>
         </div>
     )

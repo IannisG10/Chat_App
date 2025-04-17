@@ -21,19 +21,19 @@ export const Register = () => {
                         <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">
                             <BiChevronLeft size={28} />
                         </Link>
-                        <h3 className=" md:text-3xl text-2xl font-bold">S'inscrire</h3>
+                        <h3 className="md:text-3xl text-2xl font-bold">Inscription</h3>
                     </div>
                     <div className=" flex w-full gap-2">
                         <ExternalAuth authTittle="Google" src="/logo/Google.png" alt="Logo Google" />
                         <ExternalAuth authTittle="Faebook" src="/logo/Facebook.png" alt="Logo Faebook"/>
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                        <InputAuth placeholder="Nom d'utilisateur" label="username" options={{required:"Nom d'utilisateur requis "}}/>
-                        <InputAuth placeholder="email" label="email" options={{required:"email d'utilisateur requis "}}/>
+                        <InputAuth placeholder="Nom d'utilisateur" type="text" label="username" options={{required:"Nom d'utilisateur requis "}}/>
+                        <InputAuth placeholder="email" label="email" type="text" options={{required:"email d'utilisateur requis "}}/>
                         <InputAuth placeholder="mot de passe" type="password" label="password" options={{required:"Veuillez saisir un mot de passe "}}/>
                         <InputAuth placeholder="confirmation mot de passe" type="password" label="confirm_password" 
                                     options={{required:"Confirmer votre mot de passe ",
-                                    validate: (v) => v !== passwordValue && "Le mot de passe ne correspondent ps"}}/>
+                                    validate: (v) => v !== passwordValue && "Le mot de passe ne correspondent pas"}}/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />
@@ -41,7 +41,7 @@ export const Register = () => {
                     </div>
                     <div className=" w-full">
                         <button type="submit" className=" bg-[#ebdb79] hover:bg-[#eede74] w-full p-2 rounded-xl font-semibold">
-                            S'inscrire
+                            Inscrire
                         </button>
                     </div>
                     <div className=" flex justify-center">

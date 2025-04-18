@@ -1,28 +1,19 @@
 "use client"
-import React, { useState } from "react"
-import { Input } from "@/components/ui/Input"
-import { InputProps } from "@/entities/compoent-entities/input-entities"
-import { InputField } from "@/entities/application-entities/authentication"
-import {useFormContext} from "react-hook-form"
-import { Eye,EyeClosed } from "lucide-react"
+import React from "react";
+import { InputProps } from "@/entities/compoent-entities/authentification-entities";
+import { useFormContext } from "react-hook-form";
+import { InputField } from "@/entities/compoent-entities/authentification-entities";
+import { EyeClosed } from "lucide-react";
 
-export const InputAuth = ({placeholder,label,options,type} : InputProps) => {
+export const InputAuth = ({placeholder,field,type,options}: InputProps) => {
+    
     const {register,formState: {errors}} = useFormContext<InputField>()
-   
     return(
-        <> 
-            <div className=" relative">
-                <Input  
-                        placeholder={placeholder}
-                        className=" rounded-xl p-5 w-full border-black shadow-none"
-                        {...register(label,options)}
-                        type={type}
-                />
-                
-            </div>
-           <div className=" flex justify-center font-medium">
-                {errors[label] && <span className=" text-sm  text-red-600">{errors[label]?.message}</span>}
-           </div>
+        <>
+            <input placeholder={placeholder} type={type}
+                className=" border border-black w-full rounded-lg p-2 outline-none" 
+                {...register(field,options)} />
+                {errors[field] && <span className=" text-sm font-medium text-red-500">{errors[field]?.message}</span>}
         </>
     )
 }

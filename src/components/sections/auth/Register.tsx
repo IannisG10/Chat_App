@@ -1,54 +1,53 @@
 "use client"
 import React from "react";
-import {BiChevronLeft} from "react-icons/bi"
-import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import { InputAuth } from "@/components/block/Input/InputAuth";
-import { InputField } from "@/entities/application-entities/authentication";
-import Link from "next/link";
-import { FormProvider } from "react-hook-form"
-import { useForm } from "react-hook-form";
+import { InputField } from "@/entities/compoent-entities/authentification-entities";
+import {useForm} from "react-hook-form"
+import { FormProvider } from "react-hook-form";
 import { submitForm } from "@/actions/submitForm";
+import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
+import {BiChevronLeft} from "react-icons/bi"
+import Link from "next/link";
 
 export const Register = () => {
-    const methods = useForm<InputField>()
-    const passwordValue = methods.watch("password")
 
+    const methods = useForm<InputField>()
+    
     return(
         <FormProvider {...methods}>
-            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit((data) => submitForm(data,methods))}>
+
+            <form className="  flex justify-center items-center h-screen" 
+                    onSubmit={methods.handleSubmit((data)=> {submitForm(data,methods)})}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
-                        <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">
-                            <BiChevronLeft size={28} />
-                        </Link>
-                        <h3 className="md:text-3xl text-2xl font-bold">Inscription</h3>
+                        <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>
+                        <h3 className="text-3xl font-bold">S'inscrire</h3>
                     </div>
                     <div className=" flex w-full gap-2">
-                        <ExternalAuth authTittle="Google" src="/logo/Google.png" alt="Logo Google" />
-                        <ExternalAuth authTittle="Faebook" src="/logo/Facebook.png" alt="Logo Faebook"/>
+                        <ExternalAuth authTittle="Google" src="/logo/Google.png" alt="Google Logo"/>
+                        <ExternalAuth authTittle="Facebook" src="/logo/Facebook.png" alt="Facebook logo"/>
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                        <InputAuth placeholder="Nom d'utilisateur" type="text" label="username" options={{required:"Nom d'utilisateur requis "}}/>
-                        <InputAuth placeholder="email" label="email" type="text" options={{required:"email d'utilisateur requis "}}/>
-                        <InputAuth placeholder="mot de passe" type="password" label="password" options={{required:"Veuillez saisir un mot de passe "}}/>
-                        <InputAuth placeholder="confirmation mot de passe" type="password" label="confirm_password" 
-                                    options={{required:"Confirmer votre mot de passe ",
-                                    validate: (v) => v !== passwordValue && "Le mot de passe ne correspondent pas"}}/>
+                        <InputAuth field="username" type="text" 
+                            options={{required:"Veuillez fournir un mot de passe"}}    placeholder="nom d'utilisateur"/>
+                        <InputAuth field="email" type="text" 
+                            options={{required:"Adresse email obligatoire"}}    placeholder="email"/>
+                        <InputAuth field="password" type="password" 
+                            options={{required:"Mot de passe requis"}}    placeholder="mot de passe"/>
+                        <InputAuth field="confirm_password" type="password" 
+                            options={{required:"Veuillez confirmer le mot de passe"}}  placeholder="confirmer le mot de passe"/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </div>
-                    <div className=" w-full">
-                        <button type="submit" className=" bg-[#ebdb79] hover:bg-[#eede74] w-full p-2 rounded-xl font-semibold">
-                            Inscrire
-                        </button>
-                    </div>
+                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S'inscrire</button>
                     <div className=" flex justify-center">
-                        <Link href="/authentication/Signin" className="text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>
+                        <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">S'inscrire</Link>
                     </div>
                 </div>
             </form>
+
         </FormProvider>
     )
-}
+} 

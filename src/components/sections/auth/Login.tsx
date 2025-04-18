@@ -3,10 +3,12 @@ import React from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
-import Link from "next/link";
 import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
+
 import { InputField } from "@/entities/compoent-entities/authentification-entities";
+import Link from "next/link";
+
 
 export const Login = () => {
     

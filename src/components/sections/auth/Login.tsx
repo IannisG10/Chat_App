@@ -5,8 +5,10 @@ import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
 import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
-import { InputField } from "@/entities/application-entities/authentication";
+
+import { InputField } from "@/entities/compoent-entities/authentification-entities";
 import Link from "next/link";
+
 
 export const Login = () => {
     
@@ -26,8 +28,8 @@ export const Login = () => {
                         <ExternalAuth authTittle="Faebook" src="/logo/Facebook.png" alt="Logo Faebook"/>
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                        <InputAuth placeholder="Nom d'utilisateur" label="username" options={{required:"Nom requis"}}/>
-                        <InputAuth placeholder="mot de passe" type="password" label="password" options={{required:"Mot de passe obligatoire"}}/>
+                        <InputAuth placeholder="Nom d'utilisateur" type="text" field="username" options={{required:"Nom requis"}}/>
+                        <InputAuth placeholder="mot de passe" type="password" field="password" options={{required:"Mot de passe obligatoire"}}/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />

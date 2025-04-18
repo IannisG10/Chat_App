@@ -1,7 +1,8 @@
+import { InputField } from "@/entities/compoent-entities/authentification-entities";
 import { UseFormReturn } from "react-hook-form";
-import { InputField } from "@/entities/application-entities/authentication";
 
 export const submitForm = (data: InputField,methods: UseFormReturn<InputField>) => {
-    console.log("Formulaire validé :",data)
+    console.log(data);
     methods.reset()
-}
+    
+} 

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { BiSolidMoon } from "react-icons/bi"
 import { NavBarType } from "@/entities/compoent-entities/header-entities";

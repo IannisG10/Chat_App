@@ -12,6 +12,7 @@ import Link from "next/link";
 export const Register = () => {
 
     const methods = useForm<InputField>()
+    const password_value = methods.watch("password")
     
     return(
         <FormProvider {...methods}>

@@ -3,7 +3,6 @@ import React from "react";
 import { InputProps } from "@/entities/compoent-entities/authentification-entities";
 import { useFormContext } from "react-hook-form";
 import { InputField } from "@/entities/compoent-entities/authentification-entities";
-import { EyeClosed } from "lucide-react";
 
 export const InputAuth = ({placeholder,field,type,options}: InputProps) => {
     

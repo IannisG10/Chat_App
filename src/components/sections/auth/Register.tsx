@@ -43,7 +43,7 @@ export const Register = () => {
                     </div>
                     <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S'inscrire</button>
                     <div className=" flex justify-center">
-                        <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">S'inscrire</Link>
+                        <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>
                     </div>
                 </div>
             </form>

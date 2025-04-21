@@ -28,7 +28,7 @@ export const DotMenu = ({iconList}: HeaderProps) => {
             {isVisible && (
                 <div className={`absolute top-14 right-3 z-0 bg-gray-200 p-1 transition-all duration-300 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5"} rounded-full flex flex-col gap-1`}>
                     {iconList.map((item,index)=>(
-                        <Link href={item.href} key={index} className="p-0.5 rounded-full hover:bg-gray-100 cursor-pointer">{item.iconComponent}</Link>
+                        <Link href={item.href} key={index} className={`p-0.5 rounded-full hover:bg-gray-100 cursor-pointer `}>{item.iconComponent}</Link>
                     ))}
                 </div>
                 )

@@ -3,8 +3,8 @@ import { MessageType } from "@/entities/application-entities/message";
 export const messageList: MessageType[] = [
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -13,8 +13,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -23,8 +23,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -33,8 +33,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -43,8 +43,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -53,8 +53,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -63,8 +63,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",
@@ -73,8 +73,8 @@ export const messageList: MessageType[] = [
     },
     {
         sender: {
-            name: "Mario",
-            lastname: "Ralison",
+            name: "GUERRA",
+            lastname: "Iannis",
             photoUrl: "/img/userprofile.jpeg"
         },
         message: "Lorem ipsum dolor it set amet pjpp",

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { HeaderProps } from "@/components/sections/Header/Header";
 import {BiDotsVertical} from "react-icons/bi"
-import styled from "styled-components"
 import Link from "next/link";
 
 export const DotMenu = ({iconList}: HeaderProps) => {

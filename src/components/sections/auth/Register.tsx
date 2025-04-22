@@ -18,7 +18,7 @@ export const Register = () => {
 
     const onSubmit =  async (data: InputField)=> {
         try{
-            await submitForm(data,methods)
+            await submitForm(data)
             toast({
                 description: "Inscription réussi",
                 variant: "success"

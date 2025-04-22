@@ -7,7 +7,7 @@ export const FriendCarrousel = ()=> {
     const friend = userList.slice(0,6)
     return(
         <div className=" flex flex-col justify-center items-center gap-8">
-            <h1 className=" font-semibold text-2xl">Suggestions d'ami(e)s</h1>
+            <h1 className=" font-semibold text-2xl">Suggestions d ami(e)s</h1>
             <div className=" flex items-center gap-2">
                 <BiChevronLeft size={36} className=" md:block hidden p-1 transition-all duration-150 cursor-pointer hover:bg-gray-50 rounded-full"/>
                 <div className=" md:flex grid grid-cols-3 grid-rows-2 md:gap-6 gap-3 items-center">

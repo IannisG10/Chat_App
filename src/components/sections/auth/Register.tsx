@@ -26,7 +26,7 @@ export const Register = () => {
             methods.reset()
         }catch(err){
             toast({
-                description: "Erreur lors de l'inscription",
+                description: "Erreur lors de l'inscription. Veuillez rééesayer",
                 variant: "destructive"
             })
             methods.reset()

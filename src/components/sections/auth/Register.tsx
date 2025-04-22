@@ -8,17 +8,25 @@ import { submitForm } from "@/actions/submitForm";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 export const Register = () => {
 
     const methods = useForm<InputField>()
     const password_value = methods.watch("password")
+    const {toast} = useToast()
     
     return(
         <FormProvider {...methods}>
 
             <form className="  flex justify-center items-center h-screen" 
-                    onSubmit={methods.handleSubmit((data)=> {submitForm(data,methods)})}>
+                    onSubmit={methods.handleSubmit((data)=> {
+                        submitForm(data,methods)
+                        toast({
+                            title: "Inscription",
+                            description: "Inscription réussi avec succes "
+                        })
+                    })}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>
@@ -36,7 +44,7 @@ export const Register = () => {
                         <InputAuth field="password" type="password" 
                             options={{required:"Mot de passe requis"}}    placeholder="mot de passe"/>
                         <InputAuth field="confirm_password" type="password" 
-                            options={{required:"Veuillez confirmer le mot de passe"}}  placeholder="confirmer le mot de passe"/>
+                            options={{required:"Veuillez confirmer le mot de passe",validate: v => v === password_value || "Les mots de passe ne correspondent pas "}}  placeholder="confirmer le mot de passe"/>
                     </div>
                     <div className=" flex justify-start pl-2 gap-1 items-center ">
                         <input type="checkbox"  />
@@ -48,6 +56,7 @@ export const Register = () => {
                     </div>
                 </div>
             </form>
+            {/* <Toaster/> */}
 
         </FormProvider>
     )

@@ -2,17 +2,16 @@ import { InputField } from "@/entities/compoent-entities/authentification-entiti
 import { UseFormReturn } from "react-hook-form"
 import axios from "axios"
 
-
-
 export const submitForm = async (data: InputField,methods: UseFormReturn<InputField>) => {
     
     try{
         const response = await axios.post("https://chat-app-api-5pvs.onrender.com/signup",data)
-        console.log(response.data)
-        methods.reset()
+        if(!response || response.status !== 200){
+            throw new Error("Immpossible to send data ")
+        }
+        return response
     }catch(err){
         console.log(err);
-        
-    }
-    
+        throw new Error("Une erreur est survenue")
+    }    
 } 

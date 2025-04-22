@@ -15,18 +15,29 @@ export const Register = () => {
     const methods = useForm<InputField>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
+
+    const onSubmit =  async (data: InputField)=> {
+        try{
+            await submitForm(data,methods)
+            toast({
+                description: "Inscription réussi",
+                variant: "success"
+            })
+            methods.reset()
+        }catch(err){
+            toast({
+                description: "Erreur lors de l'inscription",
+                variant: "destructive"
+            })
+            methods.reset()
+        }
+    }
     
     return(
         <FormProvider {...methods}>
 
             <form className="  flex justify-center items-center h-screen" 
-                    onSubmit={methods.handleSubmit((data)=> {
-                        submitForm(data,methods)
-                        toast({
-                            title: "Inscription",
-                            description: "Inscription réussi avec succes "
-                        })
-                    })}>
+                    onSubmit={methods.handleSubmit(onSubmit)}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>

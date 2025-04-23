@@ -11,7 +11,7 @@ export const Header = ({barComponent,iconList}: HeaderProps)=> {
     console.log("s'execute")
     return(
         <header className="flex justify-between items-center gap-3">
-            <h1 className=" md:font-bold font-extrabold md:text-2xl text-lg">ChatBot.</h1>
+            <h1 className=" md:font-bold font-extrabold md:text-2xl text-lg">Tchaton.</h1>
             {barComponent}
             <div>
                 <div className={`md:flex  items-center ${iconList.length > 1 && "hidden"}`}>

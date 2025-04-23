@@ -5,13 +5,12 @@ import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
 import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
-
-import { InputField } from "@/entities/compoent-entities/authentification-entities";
+import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
 
 export const Login = () => {
     
-    const methods = useForm<InputField>()
+    const methods = useForm<InputFieldType>()
     return(
         <FormProvider {...methods}>
             <form className=" flex justify-center items-center h-screen">

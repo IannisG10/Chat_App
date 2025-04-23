@@ -1,22 +1,22 @@
 "use client"
 import React from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
-import { InputField } from "@/entities/compoent-entities/authentification-entities";
-import {useForm} from "react-hook-form"
+import { InputFieldType } from "@/components/block/Input/Input.types";
+import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import { FormProvider } from "react-hook-form";
 import { submitForm } from "@/actions/submitForm";
-import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
+import {useForm} from "react-hook-form"
 import { useToast } from "@/hooks/use-toast";
 
 export const Register = () => {
 
-    const methods = useForm<InputField>()
+    const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
 
-    const onSubmit =  async (data: InputField)=> {
+    const onSubmit =  async (data: InputFieldType)=> {
         try{
             await submitForm(data)
             toast({

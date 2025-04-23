@@ -1,5 +1,4 @@
 import { InputField } from "@/entities/compoent-entities/authentification-entities";
-import { UseFormReturn } from "react-hook-form"
 import axios from "axios"
 
 export const submitForm = async (data: InputField) => {

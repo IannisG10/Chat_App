@@ -25,6 +25,7 @@ export const Register = () => {
             })
             methods.reset()
         }catch(err){
+            console.error(err)
             toast({
                 description: "Erreur lors de l'inscription. Veuillez rééesayer",
                 variant: "destructive"
@@ -61,14 +62,12 @@ export const Register = () => {
                         <input type="checkbox"  />
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </div>
-                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S'inscrire</button>
+                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S inscrire</button>
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>
                     </div>
                 </div>
             </form>
-            {/* <Toaster/> */}
-
         </FormProvider>
     )
 } 

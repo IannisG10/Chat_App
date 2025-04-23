@@ -5,7 +5,7 @@ import { Hero } from "@/components/sections/Hero/Hero";
 import { NavBar } from "@/components/block/NavBar/NavBar";
 import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
 import { Footer } from "@/components/sections/Footer/Footer";
-import { IconRouteType } from "@/entities/compoent-entities/header-entities";
+import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
 
 export default function Acceuil(){

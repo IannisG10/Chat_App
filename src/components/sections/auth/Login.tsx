@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import { InputField } from "@/entities/compoent-entities/authentification-entities";
 import Link from "next/link";
 
-
 export const Login = () => {
     
     const methods = useForm<InputField>()
@@ -41,7 +40,7 @@ export const Login = () => {
                         </button>
                     </Link>
                     <div className=" flex justify-center">
-                        <Link href="/authentication/Signup" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">S'inscrire</Link>
+                        <Link href="/authentication/Signup" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">S inscrire</Link>
                     </div>
                 </div>
             </form>

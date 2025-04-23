@@ -1,4 +1,4 @@
-import { AboutType } from "@/entities/compoent-entities/about-entities"
+import { AboutType } from "@/components/sections/About/About.types"
 
 export const  aboutList: AboutType[] = [
     {

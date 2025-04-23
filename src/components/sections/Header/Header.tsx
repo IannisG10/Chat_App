@@ -1,12 +1,8 @@
 import React from "react"
 import Link from "next/link"
-import { IconRouteType } from "@/entities/compoent-entities/header-entities"
 import { DotMenu } from "@/components/block/ResponsiveMenu/DotMenu"
+import { HeaderProps } from "./Header.types"
 
-export interface HeaderProps {
-    barComponent?: React.ReactElement
-    iconList: IconRouteType[]
-}
 export const Header = ({barComponent,iconList}: HeaderProps)=> {
     console.log("s'execute")
     return(

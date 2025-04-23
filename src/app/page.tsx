@@ -4,7 +4,7 @@ import { Footer } from "@/components/sections/Footer/Footer";
 import { Header } from "@/components/sections/Header/Header";
 import { Hero } from "@/components/sections/Hero/Hero";
 import { NavBar } from "@/components/block/NavBar/NavBar";
-import { IconRouteType } from "@/entities/compoent-entities/header-entities";
+import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiLogInCircle} from "react-icons/bi"
 
 export default function Home() {

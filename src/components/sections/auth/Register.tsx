@@ -1,30 +1,31 @@
 "use client"
 import React from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
-import { InputField } from "@/entities/compoent-entities/authentification-entities";
-import {useForm} from "react-hook-form"
+import { InputFieldType } from "@/components/block/Input/Input.types";
+import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import { FormProvider } from "react-hook-form";
 import { submitForm } from "@/actions/submitForm";
-import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
+import {useForm} from "react-hook-form"
 import { useToast } from "@/hooks/use-toast";
 
 export const Register = () => {
 
-    const methods = useForm<InputField>()
+    const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
 
-    const onSubmit =  async (data: InputField)=> {
+    const onSubmit =  async (data: InputFieldType)=> {
         try{
-            await submitForm(data,methods)
+            await submitForm(data)
             toast({
                 description: "Inscription réussi",
                 variant: "success"
             })
             methods.reset()
         }catch(err){
+            console.error(err)
             toast({
                 description: "Erreur lors de l'inscription. Veuillez rééesayer",
                 variant: "destructive"
@@ -41,7 +42,7 @@ export const Register = () => {
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>
-                        <h3 className="text-3xl font-bold">S'inscrire</h3>
+                        <h3 className="text-3xl font-bold">S inscrire</h3>
                     </div>
                     <div className=" flex w-full gap-2">
                         <ExternalAuth authTittle="Google" src="/logo/Google.png" alt="Google Logo"/>
@@ -61,14 +62,12 @@ export const Register = () => {
                         <input type="checkbox"  />
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </div>
-                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S'inscrire</button>
+                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S inscrire</button>
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>
                     </div>
                 </div>
             </form>
-            {/* <Toaster/> */}
-
         </FormProvider>
     )
 } 

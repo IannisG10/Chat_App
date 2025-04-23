@@ -1,8 +1,7 @@
-import { InputField } from "@/entities/compoent-entities/authentification-entities";
-import { UseFormReturn } from "react-hook-form"
+import { InputFieldType } from "@/components/block/Input/Input.types"
 import axios from "axios"
 
-export const submitForm = async (data: InputField,methods: UseFormReturn<InputField>) => {
+export const submitForm = async (data: InputFieldType) => {
     
     try{
         const response = await axios.post("https://chat-app-api-5pvs.onrender.com/signup",data)

@@ -2,7 +2,7 @@ import React from "react"
 import { Header } from "@/components/sections/Header/Header"
 import { FriendSuggestion } from "@/components/block/FriendSuggestion/FriendSuggestion"
 import { SearchBar } from "@/components/block/SearchBar/SearchBar"
-import { IconRouteType } from "@/entities/compoent-entities/header-entities"
+import { IconRouteType } from "@/components/sections/Header/Header.types"
 import {BiHome,BiBell,BiLogOutCircle} from "react-icons/bi"
 
 export default function Friend(){

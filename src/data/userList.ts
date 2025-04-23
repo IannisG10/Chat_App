@@ -1,84 +1,68 @@
-import { UserType } from "@/entities/application-entities/user";
+import { User } from "@/models/user/user.model";
 
-export const  userList: UserType[] = [
+export const  userList: User[] = [
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
     {
-        name: "Mario",
-        lastname: "Ralison",
-        photoUrl: "/img/userprofile.jpeg"
+        username: "Mario",
+        profileImage: "/img/userprofile.jpeg"
     },
 ]

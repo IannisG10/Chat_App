@@ -14,8 +14,8 @@ export const SideMessageList = ()=> {
                     <div key={index} className=" flex items-center cursor-pointer transition-all duration-150 ease-in-out hover:bg-gray-100 p-1 w-full gap-1">
                         <div>
                             <Image
-                                src={item.sender.photoUrl}
-                                alt={item.sender.name}
+                                src={item.sender.profileImage}
+                                alt={item.sender.username}
                                 width={50}
                                 height={50}
                                 className=" rounded-full"
@@ -23,7 +23,7 @@ export const SideMessageList = ()=> {
                         </div>
                         <div className=" flex flex-col w-full">
                             <div className=" flex items-center justify-between">
-                                <h5 className=" font-semibold text-sm">{item.sender.name} {item.sender.lastname}</h5>
+                                <h5 className=" font-semibold text-sm">{item.sender.username}</h5>
                                 <span className=" text-xs text-gray-400">{item.timeStamp}</span>
                             </div>
                             <div className=" flex items-center justify-between">

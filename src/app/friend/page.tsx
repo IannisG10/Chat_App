@@ -2,8 +2,8 @@ import React from "react"
 import { Header } from "@/components/sections/Header/Header"
 import { FriendSuggestion } from "@/components/block/FriendSuggestion/FriendSuggestion"
 import { SearchBar } from "@/components/block/SearchBar/SearchBar"
-import { IconRouteType } from "@/entities/compoent-entities/header-entities"
 import {BiHome,BiBell,BiLogOutCircle} from "react-icons/bi"
+import { IconRouteType } from "@/components/sections/Header/Header.types"
 
 export default function Friend(){
     const icoList: IconRouteType[] = [

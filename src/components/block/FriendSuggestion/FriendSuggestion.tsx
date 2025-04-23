@@ -12,13 +12,13 @@ export const FriendSuggestion = () => {
                             className=" flex flex-col gap-2 col-span-2 row-span-2 md:col-span-1 md:row-span-1 border border-gray-900 p-2 rounded-lg"
                         >
                             <Image
-                                src={item.photoUrl}
+                                src={item.profileImage}
                                 alt="photo de profil"
                                 width={200}
                                 height={80}
                                 className=" w-full rounded-md"
                             />
-                            <span className=" flex justify-start font-semibold">{item.name} {item.lastname}</span>
+                            <span className=" flex justify-start font-semibold">{item.username} </span>
                             <button className=" font-semibold bg-[#1260e6] hover:bg-[#2466ebf7] p-0.5 rounded-md md:text-base text-sm">Discuter</button>
                         </div>
                     ))

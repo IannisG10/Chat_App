@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import { HeaderProps } from "@/components/sections/Header/Header";
+import { HeaderProps } from "@/components/sections/Header/Header.types";
 import {BiDotsVertical} from "react-icons/bi"
 import Link from "next/link";
 

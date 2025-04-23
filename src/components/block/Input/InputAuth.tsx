@@ -1,12 +1,12 @@
 "use client"
 import React from "react";
-import { InputProps } from "@/entities/compoent-entities/authentification-entities";
+import { InputProps } from "./Input.types";
+import { InputFieldType } from "./Input.types";
 import { useFormContext } from "react-hook-form";
-import { InputField } from "@/entities/compoent-entities/authentification-entities";
 
 export const InputAuth = ({placeholder,field,type,options}: InputProps) => {
     
-    const {register,formState: {errors}} = useFormContext<InputField>()
+    const {register,formState: {errors}} = useFormContext<InputFieldType>()
     return(
         <>
             <input placeholder={placeholder} type={type}

@@ -1,11 +1,6 @@
 import React from "react"
 import Image from "next/image"
-
-interface ExternalAuthProps {
-    authTittle: string
-    src: string
-    alt: string
-}
+import { ExternalAuthProps } from "./ExternalAuth.types"
 
 export const ExternalAuth = ({authTittle,src,alt}: ExternalAuthProps) => {
     return(

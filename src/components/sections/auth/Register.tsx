@@ -9,6 +9,7 @@ import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
 import {useForm} from "react-hook-form"
 import { useToast } from "@/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query"
 
 export const Register = () => {
 
@@ -33,6 +34,13 @@ export const Register = () => {
             methods.reset()
         }
     }
+
+    const {isPending} = useMutation({
+        mutationFn: onSubmit,
+        onSuccess: () => {
+            console.log("Inscription réussi")
+        }
+    })
     
     return(
         <FormProvider {...methods}>

@@ -2,7 +2,10 @@ import React from "react"
 import { userList } from "@/data/userList"
 import Image from "next/image"
 
+
 export const FriendSuggestion = () => {
+
+    
     return(
        <div className='flex justify-center w-full items-center md:p-2 p-1'>
             <div className="grid grid-cols-4 grid-rows-4 w-3/4 md:gap-8 gap-4 p-5 mt-2">

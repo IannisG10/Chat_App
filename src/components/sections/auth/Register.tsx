@@ -80,8 +80,10 @@ export const Register = () => {
                         <input type="checkbox"/>
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </label>
-                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full" disabled={isPending}>
-                        {isPending ? <Loader/> : "S'inscrire" }
+                    <button className={`bg-yellow-200 p-2 rounded-lg font-semibold w-full`} disabled={isPending}>
+                        <span>
+                            {isPending ? <Loader/> : "S'inscrire" }
+                        </span>
                     </button>
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>

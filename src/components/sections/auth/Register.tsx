@@ -9,6 +9,9 @@ import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
 import {useForm} from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
+import Loader from "@/components/ui/loader";
+import { useMutation } from "@tanstack/react-query";
+
 
 export const Register = () => {
 
@@ -34,26 +37,26 @@ export const Register = () => {
         }
     }
     // Send the data to the server with use Mutation
-    // const {isPending,mutate} = useMutation({
-    //     mutationFn: onSubmit,
-    //     onSuccess: (data) => {
-    //         console.log("Inscription réussi",data)
-    //         methods.reset()
-    //     },
-    //     onError: () => {
-    //         console.log("Erreur d'inscription")
-    //         methods.reset()
-    //     }
-    // })
+    const {isPending,mutate} = useMutation({
+        mutationFn: onSubmit,
+        onSuccess: (data) => {
+            console.log("Inscription réussi",data)
+            methods.reset()
+        },
+        onError: () => {
+            console.log("Erreur d'inscription")
+            methods.reset()
+        }
+    })
 
-    // const onSubmits = (data: InputFieldType) => {
-    //     mutate(data)
-    // }
+    const onSubmits = (data: InputFieldType) => {
+        mutate(data)
+    }
     
     return(
         <FormProvider {...methods}>
             <form className="  flex justify-center items-center h-screen" 
-                    onSubmit={methods.handleSubmit(onSubmit)}>
+                    onSubmit={methods.handleSubmit(onSubmits)}>
                 <div className="flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <Link href="/" className=" flex justify-between items-center w-full">
                         <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>
@@ -77,7 +80,9 @@ export const Register = () => {
                         <input type="checkbox"/>
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </label>
-                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full">S inscrire</button>
+                    <button className="bg-yellow-200 p-2 rounded-lg font-semibold w-full" disabled={isPending}>
+                        {isPending ? <Loader/> : "S'inscrire" }
+                    </button>
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signin" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">Se connecter</Link>
                     </div>

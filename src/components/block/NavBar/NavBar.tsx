@@ -2,6 +2,7 @@
 import React from "react";
 import { BiSolidMoon } from "react-icons/bi"
 import { NavBarType } from "./NavBar.types";
+import { usePathname } from 'next/navigation';
 
 export const NavBar = ({firstItem,secondItem,thirdItem}: NavBarType) => {
     return(

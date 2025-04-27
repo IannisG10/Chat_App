@@ -2,8 +2,10 @@
 import React from "react";
 import { BiSolidMoon } from "react-icons/bi"
 import { NavBarType } from "./NavBar.types";
+import { usePathname } from 'next/navigation';
 
 export const NavBar = ({firstItem,secondItem,thirdItem}: NavBarType) => {
+    const path = usePathname();
     return(
         <nav className="flex items-center justify-around bg-[#2c2c2c] md:w-1/4 w-11/12  rounded-3xl">
             <ul className=" flex text-white justify-between md:w-3/4 w-full  ">

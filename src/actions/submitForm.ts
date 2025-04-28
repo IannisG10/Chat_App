@@ -14,3 +14,11 @@ export const submitForm = async (data: InputFieldType) => {
         throw new Error("Une erreur est survenue")
     }    
 } 
+
+export const onSubmit = async (data: InputFieldType) => {
+    try{
+        await submitForm(data)
+    }catch(err){
+        console.error(err)
+    }
+}

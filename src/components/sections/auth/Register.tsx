@@ -26,7 +26,10 @@ export const Register = () => {
                 description: "Inscription réussi",
                 variant: "success"
             })
-            router.push("/authentication/Signin")
+            setTimeout(()=>{
+                router.push("/authentication/Signin")
+            },3000)
+            
         }catch(err){
             console.error(err)
             toast({

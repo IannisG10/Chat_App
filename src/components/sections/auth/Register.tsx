@@ -26,6 +26,7 @@ export const Register = () => {
                 description: "Inscription réussi",
                 variant: "success"
             })
+            router.push("/authentication/Signin")
         }catch(err){
             console.error(err)
             toast({

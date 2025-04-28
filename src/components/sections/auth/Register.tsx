@@ -3,22 +3,21 @@ import React from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
+import Loader from "@/components/ui/loader";
 import { FormProvider } from "react-hook-form";
-import { submitForm } from "@/actions/submitForm";
-import {BiChevronLeft} from "react-icons/bi"
-import Link from "next/link";
 import {useForm} from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import Loader from "@/components/ui/loader";
+import { submitForm } from "@/actions/submitForm";
+//import { onSubmit } from "@/actions/submitForm";
+import {BiChevronLeft} from "react-icons/bi"
 import { useMutation } from "@tanstack/react-query";
-
+import Link from "next/link";
 
 export const Register = () => {
 
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
-
     const onSubmit =  async (data: InputFieldType)=> {
         try{
             await submitForm(data)
@@ -26,26 +25,33 @@ export const Register = () => {
                 description: "Inscription réussi",
                 variant: "success"
             })
-            //methods.reset()
         }catch(err){
             console.error(err)
             toast({
                 description: "Erreur lors de l'inscription. Veuillez rééesayer",
                 variant: "destructive"
             })
-            //methods.reset()
         }
     }
     // Send the data to the server with use Mutation
     const {isPending,mutate} = useMutation({
         mutationFn: onSubmit,
         onSuccess: (data) => {
-            console.log("Inscription réussi",data)
-            methods.reset()
+            console.log("Inscription réussi",data);
+            // toast({
+            //     description: "Inscription réussi",
+            //     variant: "success"
+            // })
+            methods.reset();
         },
         onError: () => {
-            console.log("Erreur d'inscription")
-            methods.reset()
+            console.log("Erreur d'inscription");
+            alert("yooo")
+            // toast({
+            //     description: "Erreur lors de l'inscription. Veuillez rééesayer",
+            //     variant: "destructive"
+            // })
+            methods.reset();
         }
     })
 
@@ -93,5 +99,3 @@ export const Register = () => {
         </FormProvider>
     )
 }
-
-

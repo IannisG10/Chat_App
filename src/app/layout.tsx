@@ -8,24 +8,15 @@ export const metadata = {
     icon: "/favico.png"
   }
 }
-
-
-
 export default function RootLayout({children}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
       <html lang="en">
-        <body
-<<<<<<< HEAD
-        >
-            {children}
-=======
-        > 
+        <body>
           <Providers>
             {children}
           </Providers>
->>>>>>> 68a7afbf0aa2595308954ad3b51193b092e4d3e1
         </body>
       </html>
   );

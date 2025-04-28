@@ -18,6 +18,7 @@ export const Register = () => {
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
+    const router = useRouter()
     const onSubmit =  async (data: InputFieldType)=> {
         try{
             await submitForm(data)

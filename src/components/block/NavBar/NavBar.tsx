@@ -2,14 +2,29 @@
 import React from "react";
 import { BiSolidMoon } from "react-icons/bi"
 import { NavBarType } from "./NavBar.types";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export const NavBar = ({firstItem,secondItem,thirdItem}: NavBarType) => {
+    const path = usePathname()
     return(
         <nav className="flex items-center justify-around bg-[#2c2c2c] md:w-1/4 w-11/12  rounded-3xl">
             <ul className=" flex text-white justify-between md:w-3/4 w-full  ">
-                <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >{firstItem}</li>
-                <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >{secondItem}</li>
-                <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >{thirdItem}</li>
+                <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >
+                    <Link href="" className={` ${path === "/" && " bg-[#535353] py-2 px-2 rounded-3xl"}`}>
+                        {firstItem}
+                    </Link>
+                </li>
+                <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >
+                    <Link href="">
+                        {secondItem}
+                    </Link>
+                </li>
+                <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >
+                    <Link href="">
+                        {thirdItem}
+                    </Link>
+                </li>
             </ul>
             <div className="md:block hidden rounded-full p-1 hover:bg-[#535353] transition-all duration-150 cursor-pointer">
                 <BiSolidMoon color="white" size={25}/>

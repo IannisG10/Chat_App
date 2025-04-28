@@ -11,10 +11,8 @@ export const NavBar = ({firstItem,secondItem,thirdItem}: NavBarType) => {
         <nav className="flex items-center justify-around bg-[#2c2c2c] md:w-1/4 w-11/12  rounded-3xl">
             <ul className=" flex text-white justify-between md:w-3/4 w-full  ">
                 <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >
-                    <Link href="">
+                   
                         {firstItem}
-                    </Link>
-                    
                 </li>
                 <li className=" cursor-pointer hover:bg-[#535353] transition-all duration-150 md:py-2 py-1.5 md:text-base text-sm rounded-3xl px-2" >
                     {secondItem}

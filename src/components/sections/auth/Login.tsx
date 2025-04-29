@@ -7,13 +7,31 @@ import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
+import { submitForm } from "@/actions/submitForm";
+import { useQuery } from "@tanstack/react-query";
+
+const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
 export const Login = () => {
     
     const methods = useForm<InputFieldType>()
+
+    const onSubmit = async (data: InputFieldType) => {
+        try{
+            await submitForm(data,LOGIN_URL)
+            console.log("connexion réussi")
+        }catch(err){
+            console.log(err);
+            
+            throw new Error()
+
+        }
+    }
     return(
         <FormProvider {...methods}>
-            <form className=" flex justify-center items-center h-screen">
+            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit((data)=>{
+                onSubmit(data)
+            })}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">

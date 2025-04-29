@@ -1,10 +1,10 @@
 import { InputFieldType } from "@/components/block/Input/Input.types"
 import axios from "axios"
 
-export const submitForm = async (data: InputFieldType) => {
+export const submitForm = async (data: InputFieldType,URL: string) => {
     
     try{
-        const response = await axios.post("https://chat-app-api-5pvs.onrender.com/signup",data)
+        const response = await axios.post(URL,data)
         if(!response || response.status !== 200){
             throw new Error("Immpossible to send data ")
         }
@@ -15,10 +15,10 @@ export const submitForm = async (data: InputFieldType) => {
     }    
 } 
 
-export const onSubmit = async (data: InputFieldType) => {
-    try{
-        await submitForm(data)
-    }catch(err){
-        console.error(err)
-    }
-}
+// export const onSubmit = async (data: InputFieldType,URL: string) => {
+//     try{
+//         await submitForm(data,URL)
+//     }catch(err){
+//         console.error(err)
+//     }
+// }

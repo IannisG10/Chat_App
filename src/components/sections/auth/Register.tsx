@@ -13,6 +13,8 @@ import {BiChevronLeft} from "react-icons/bi"
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 
+const SIGNUP_URL = "https://chat-app-api-5pvs.onrender.com/signup"
+
 export const Register = () => {
 
     const methods = useForm<InputFieldType>()
@@ -20,7 +22,7 @@ export const Register = () => {
     const {toast} = useToast()
     const onSubmit =  async (data: InputFieldType)=> {
         try{
-            await submitForm(data)
+            await submitForm(data,SIGNUP_URL)
             toast({
                 description: "Inscription réussi",
                 variant: "success"

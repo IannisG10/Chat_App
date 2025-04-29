@@ -8,7 +8,7 @@ import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import { submitForm } from "@/actions/submitForm";
-//import { onSubmit } from "@/actions/submitForm";
+import {useRouter} from "next/navigation";
 import {BiChevronLeft} from "react-icons/bi"
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
@@ -20,6 +20,7 @@ export const Register = () => {
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
+    const router = useRouter()
     const onSubmit =  async (data: InputFieldType)=> {
         try{
             await submitForm(data,SIGNUP_URL)
@@ -27,6 +28,10 @@ export const Register = () => {
                 description: "Inscription réussi",
                 variant: "success"
             })
+            setTimeout(()=>{
+                router.push("/authentication/Signin")
+            },3000)
+            
         }catch(err){
             console.error(err)
             toast({

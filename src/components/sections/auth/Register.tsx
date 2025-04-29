@@ -54,10 +54,6 @@ export const Register = () => {
         onError: () => {
             console.log("Erreur d'inscription");
             alert("yooo")
-            // toast({
-            //     description: "Erreur lors de l'inscription. Veuillez rééesayer",
-            //     variant: "destructive"
-            // })
             methods.reset();
         }
     })

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
 import { submitForm } from "@/actions/submitForm";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
@@ -26,6 +26,20 @@ export const Login = () => {
             throw new Error()
 
         }
+    }
+
+    const {isPending,mutate} = useMutation({
+        mutationFn: onSubmit,
+        onSuccess: () => {
+            console.log("Login successfully")
+        },
+        onError: () => {
+            console.log("Login error")
+        }
+    })
+
+    const onSubmits = (data: InputFieldType) => {
+        mutate(data)
     }
     return(
         <FormProvider {...methods}>

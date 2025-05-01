@@ -10,20 +10,30 @@ import Link from "next/link";
 import { submitForm } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
 import Loader from "@/components/ui/loader";
+import { useToast } from "@/hooks/use-toast";
 
 const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
 export const Login = () => {
+
+    const {toast} = useToast() 
     
     const methods = useForm<InputFieldType>()
 
     const onSubmit = async (data: InputFieldType) => {
         try{
             await submitForm(data,LOGIN_URL)
+            toast({
+                description: "Connexion établie", 
+                variant: "success"
+            })
             console.log("connexion réussi")
         }catch(err){
             console.log(err);
-            
+            toast({
+                description: "Impossible de se connecter ",
+                variant: "destructive"
+            })
             throw new Error()
 
         }

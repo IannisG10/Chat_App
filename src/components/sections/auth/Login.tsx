@@ -9,6 +9,7 @@ import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
 import { submitForm } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
+import Loader from "@/components/ui/loader";
 
 const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
@@ -44,7 +45,7 @@ export const Login = () => {
     return(
         <FormProvider {...methods}>
             <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit((data)=>{
-                onSubmit(data)
+                onSubmits
             })}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
@@ -61,15 +62,18 @@ export const Login = () => {
                         <InputAuth placeholder="Nom d'utilisateur" type="text" field="username" options={{required:"Nom requis"}}/>
                         <InputAuth placeholder="mot de passe" type="password" field="password" options={{required:"Mot de passe obligatoire"}}/>
                     </div>
-                    <div className=" flex justify-start pl-2 gap-1 items-center ">
+                    <label className=" flex justify-start pl-2 gap-1 items-center cursor-pointer ">
                         <input type="checkbox"  />
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
-                    </div>
-                    <Link className=" w-full" href="/friend">
-                        <button type="submit" className=" bg-[#ebdb79] hover:bg-[#eede74] w-full p-2 rounded-xl font-semibold">
-                            Se connecter
+                    </label>
+                    {/* <Link className=" w-full" href="/friend"> */}
+                        <button type="submit" className={`bg-yellow-200 p-2 rounded-lg font-semibold w-full`}  disabled={isPending}>
+                            <span>
+                                {isPending ? <Loader/> : "Se connecter"}
+                            </span>
+                            
                         </button>
-                    </Link>
+                    {/* </Link> */}
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signup" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">S inscrire</Link>
                     </div>

@@ -4,7 +4,7 @@ import axios from "axios"
 export const submitForm = async (data: InputFieldType,URL: string) => {
     
     try{
-        const response = await axios.post(URL,data)
+        const response = await axios.post(URL,data,{withCredentials: true})
         if(!response || response.status !== 200){
             throw new Error("Immpossible to send data ")
         }

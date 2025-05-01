@@ -33,6 +33,7 @@ export const Login = () => {
         mutationFn: onSubmit,
         onSuccess: () => {
             console.log("Login successfully")
+            methods.reset()
         },
         onError: () => {
             console.log("Login error")

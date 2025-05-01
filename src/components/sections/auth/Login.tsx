@@ -57,7 +57,7 @@ export const Login = () => {
                         <ExternalAuth authTittle="Faebook" src="/logo/Facebook.png" alt="Logo Faebook"/>
                     </div>
                     <div className="w-full flex flex-col gap-2">
-                        <InputAuth placeholder="Nom d'utilisateur" type="text" field="username" options={{required:"Nom requis"}}/>
+                        <InputAuth placeholder="email" type="text" field="email" options={{required:"Nom requis"}}/>
                         <InputAuth placeholder="mot de passe" type="password" field="password" options={{required:"Mot de passe obligatoire"}}/>
                     </div>
                     <label className=" flex justify-start pl-2 gap-1 items-center cursor-pointer ">

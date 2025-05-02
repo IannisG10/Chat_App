@@ -11,7 +11,7 @@ import { submitForm } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
-
+import { useRouter } from "next/navigation";
 const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
 export const Login = () => {

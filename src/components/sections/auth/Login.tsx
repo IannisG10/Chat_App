@@ -29,9 +29,9 @@ export const Login = () => {
                 variant: "success"
             })
             console.log("connexion réussi")
-            setTimeout(()=>{
-                router.push("/friend")
-            },200)
+            // setTimeout(()=>{
+            //     router.push("/friend")
+            // },200)
         }catch(err){
             console.log(err);
             toast({

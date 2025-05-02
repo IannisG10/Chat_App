@@ -17,6 +17,7 @@ const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 export const Login = () => {
 
     const {toast} = useToast() 
+    const router = useRouter()
     
     const methods = useForm<InputFieldType>()
 

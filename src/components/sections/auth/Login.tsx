@@ -30,7 +30,7 @@ export const Login = () => {
             })
             console.log("connexion réussi")
             setTimeout(()=>{
-                router.push("")
+                router.push("/friend")
             },200)
         }catch(err){
             console.log(err);

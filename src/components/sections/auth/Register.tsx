@@ -6,12 +6,11 @@ import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import Loader from "@/components/ui/loader";
 import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
-import { useToast } from "@/hooks/use-toast";
-import { submitForm } from "@/actions/submitForm";
-import {useRouter} from "next/navigation";
+import { FormSubmit } from "@/actions/submitForm";
 import {BiChevronLeft} from "react-icons/bi"
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 const SIGNUP_URL = "https://chat-app-api-5pvs.onrender.com/signup"
 
@@ -20,40 +19,18 @@ export const Register = () => {
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast()
-    const router = useRouter()
     const onSubmit =  async (data: InputFieldType)=> {
-        try{
-            await submitForm(data,SIGNUP_URL)
-            toast({
-                description: "Inscription réussi",
-                variant: "success"
-            })
-            setTimeout(()=>{
-                router.push("/authentication/Signin")
-            },3000)
-            
-        }catch(err){
-            console.error(err)
-            toast({
-                description: "Erreur lors de l'inscription. Veuillez rééesayer",
-                variant: "destructive"
-            })
-        }
+        FormSubmit(data,SIGNUP_URL,toast)
     }
     // Send the data to the server with use Mutation
     const {isPending,mutate} = useMutation({
         mutationFn: onSubmit,
         onSuccess: (data) => {
             console.log("Inscription réussi",data);
-            // toast({
-            //     description: "Inscription réussi",
-            //     variant: "success"
-            // })
             methods.reset();
         },
         onError: () => {
             console.log("Erreur d'inscription");
-            alert("yooo")
             methods.reset();
         }
     })
@@ -61,7 +38,6 @@ export const Register = () => {
     const onSubmits = (data: InputFieldType) => {
         mutate(data)
     }
-    
     return(
         <FormProvider {...methods}>
             <form className="  flex justify-center items-center h-screen" 

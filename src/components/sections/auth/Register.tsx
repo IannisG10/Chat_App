@@ -18,9 +18,10 @@ export const Register = () => {
 
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
-    const {toast} = useToast()
+    const {toast} = useToast();
+    
     const onSubmit =  async (data: InputFieldType)=> {
-        FormSubmit(data,SIGNUP_URL,toast)
+        await FormSubmit(data,SIGNUP_URL,toast)
     }
     // Send the data to the server with use Mutation
     const {isPending,mutate} = useMutation({

@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
 import { submitForm } from "@/actions/submitForm";
+import { FormSubmit } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
@@ -21,22 +22,23 @@ export const Login = () => {
     const methods = useForm<InputFieldType>()
 
     const onSubmit = async (data: InputFieldType) => {
-        try{
-            await submitForm(data,LOGIN_URL)
-            toast({
-                description: "Connexion établie", 
-                variant: "success"
-            })
-            console.log("connexion réussi")
-        }catch(err){
-            console.log(err);
-            toast({
-                description: "Impossible de se connecter ",
-                variant: "destructive"
-            })
-            throw new Error()
+        await FormSubmit(data,LOGIN_URL,toast)
+        // try{
+        //     await submitForm(data,LOGIN_URL)
+        //     toast({
+        //         description: "Connexion établie", 
+        //         variant: "success"
+        //     })
+        //     console.log("connexion réussi")
+        // }catch(err){
+        //     console.log(err);
+        //     toast({
+        //         description: "Impossible de se connecter ",
+        //         variant: "destructive"
+        //     })
+        //     throw new Error()
 
-        }
+        // }
     }
 
     const {isPending,mutate} = useMutation({

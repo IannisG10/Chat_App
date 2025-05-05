@@ -23,13 +23,7 @@ export const Login = () => {
     const methods = useForm<InputFieldType>()
 
     const onSubmit = async (data: InputFieldType) => {
-
-        try{
-            
             await FormSubmit(data,LOGIN_URL,toast)
-        }catch(err){
-            console.log("")
-        }
     }
 
     const {isPending,mutate} = useMutation({

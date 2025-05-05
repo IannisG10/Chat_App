@@ -7,9 +7,9 @@ import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
-import { submitForm } from "@/actions/submitForm";
 import { FormSubmit } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
 // import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 export const Login = () => {
 
     const {toast} = useToast() 
-    // const router = useRouter()
+    const router = useRouter()
     
     const methods = useForm<InputFieldType>()
 
@@ -31,6 +31,9 @@ export const Login = () => {
         onSuccess: () => {
             console.log("Login successfully")
             methods.reset()
+            setTimeout(()=>{
+                router.push("/Home")
+            })
         },
         onError: () => {
             console.log("Login error")

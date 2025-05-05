@@ -9,10 +9,9 @@ import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
 import { FormSubmit } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
-// import { useRouter } from "next/navigation";
 const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
 export const Login = () => {

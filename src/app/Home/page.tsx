@@ -7,8 +7,19 @@ import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
 import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
+import axios from "axios";
 
-export default function Acceuil(){
+const getUser = async () => {
+    const res = await axios.get("https://chat-app-api-5pvs.onrender.com/auth",{
+        withCredentials: true
+    })
+    return res.data
+
+}
+
+export default async function Acceuil(){
+
+    
     const icoList: IconRouteType[] = [
         {
             href: "",

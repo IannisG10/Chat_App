@@ -7,38 +7,22 @@ import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
-import { submitForm } from "@/actions/submitForm";
 import { FormSubmit } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
-
 const LOGIN_URL = "https://chat-app-api-5pvs.onrender.com/login"
 
 export const Login = () => {
 
     const {toast} = useToast() 
+    const router = useRouter()
     
     const methods = useForm<InputFieldType>()
 
     const onSubmit = async (data: InputFieldType) => {
-        await FormSubmit(data,LOGIN_URL,toast)
-        // try{
-        //     await submitForm(data,LOGIN_URL)
-        //     toast({
-        //         description: "Connexion établie", 
-        //         variant: "success"
-        //     })
-        //     console.log("connexion réussi")
-        // }catch(err){
-        //     console.log(err);
-        //     toast({
-        //         description: "Impossible de se connecter ",
-        //         variant: "destructive"
-        //     })
-        //     throw new Error()
-
-        // }
+            await FormSubmit(data,LOGIN_URL,toast)
     }
 
     const {isPending,mutate} = useMutation({
@@ -46,6 +30,9 @@ export const Login = () => {
         onSuccess: () => {
             console.log("Login successfully")
             methods.reset()
+            setTimeout(()=>{
+                router.push("/Home")
+            })
         },
         onError: () => {
             console.log("Login error")

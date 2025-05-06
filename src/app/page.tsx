@@ -17,7 +17,10 @@ export default function Home() {
   return (
     <div className="md:p-4 p-2">
       <Header  
-        barComponent={<NavBar firstItem="Acceuil" secondItem="A propos" thirdItem="Contact"/>}
+        barComponent={
+            <NavBar firstItem="Acceuil" secondItem="A propos" thirdItem="Contact"
+                first_href="" second_href="" third_href=""
+            />}
         iconList={icoList}
       />
       <Hero 

@@ -8,7 +8,8 @@ import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
 
-export default function Acceuil(){
+export default async function Acceuil(){
+
     const icoList: IconRouteType[] = [
         {
             href: "",
@@ -26,7 +27,10 @@ export default function Acceuil(){
     return(
         <div className="p-4">
             <Header
-                barComponent={<NavBar firstItem="Acceuil" secondItem="Ami(e)s" thirdItem="Contacts"/>}
+                barComponent={
+                        <NavBar firstItem="Acceuil" secondItem="Ami(e)s" thirdItem="Contacts"
+                                first_href="/" second_href="/friend" third_href=""
+                        />}
                 iconList={icoList}
             />
             <Hero

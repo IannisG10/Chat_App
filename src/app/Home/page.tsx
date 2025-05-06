@@ -8,7 +8,8 @@ import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
 
-export default function Acceuil(){
+export default async function Acceuil(){
+
     const icoList: IconRouteType[] = [
         {
             href: "",

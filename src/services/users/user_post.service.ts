@@ -11,6 +11,7 @@ export const UserPostService = async (data: InputFieldType,URL: string) => {
         }
         return response
     } catch (error) {
+        console.log(error)
         throw new Error("Impossible to send data")
     }
 }

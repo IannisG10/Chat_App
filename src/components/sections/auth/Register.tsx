@@ -11,6 +11,7 @@ import {BiChevronLeft} from "react-icons/bi"
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
+import {useRouter} from "next/navigation"
 
 const SIGNUP_URL = "https://chat-app-api-5pvs.onrender.com/signup"
 
@@ -19,6 +20,7 @@ export const Register = () => {
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast();
+    const router = useRouter()
     
     const onSubmit =  async (data: InputFieldType)=> {
         await FormSubmit(data,SIGNUP_URL,toast)
@@ -29,6 +31,9 @@ export const Register = () => {
         onSuccess: (data) => {
             console.log("Inscription réussi",data);
             methods.reset();
+            setTimeout(()=>{
+                router.push("/authentication/Signin")
+            },2000)
         },
         onError: () => {
             console.log("Erreur d'inscription");

@@ -17,7 +17,6 @@ const getUser = async () => {
 
 }
 
-
 export default async function Acceuil(){
     const user = await getUser()
 

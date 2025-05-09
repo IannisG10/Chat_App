@@ -32,7 +32,7 @@ export const Login = () => {
             methods.reset()
             setTimeout(()=>{
                 router.push("/Home")
-            })
+            },2000)
         },
         onError: () => {
             console.log("Login error")

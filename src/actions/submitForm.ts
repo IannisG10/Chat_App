@@ -17,19 +17,11 @@ export const submitForm = async (data: InputFieldType,URL: string) => {
     }    
 } 
 
-export const FormSubmit = async(data: InputFieldType,URL: string,toast: (opts: ToastProps) =>void) => {
-    
-    try {
+export const FormSubmit = async (data: InputFieldType,URL: string,toast: (opts: ToastProps) =>void) => {
         await UserPostService(data,URL);
         toast({
             title: `${URL.includes("signup") ? 'Insciption réussi': URL.includes("login") && "Connexion réussi"}`,
             variant: "success"
         })
         
-    } catch (error) {
-        toast({
-            title:`${error}`,
-            variant: "destructive"
-        })
-    }
 }

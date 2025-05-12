@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import {BiChevronLeft} from "react-icons/bi"
@@ -7,7 +7,7 @@ import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
-import { FormSubmit } from "@/actions/submitForm";
+import { submitForm } from "@/actions/submitForm";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/ui/loader";
@@ -30,7 +30,10 @@ export const Login = () => {
                 },
                 body: JSON.stringify(data)
             }).then(res => res.json())
-            .then(datas => datas.message.token)
+            .then(datas => {
+                console.log(datas.message.token)
+                methods.reset()
+            })
             .catch(err => console.log(err))
     }
 

@@ -2,16 +2,16 @@ import { InputFieldType } from "@/components/block/Input/Input.types";
 import axios from "axios";
 
 export const UserPostService = async (data: InputFieldType,URL: string) => {
-    try {
-        const response = await axios.post(URL,data)
-        console.log(response)
+    
+        await fetch(URL,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+        .then(datas => {
+            console.log(datas.message.token)
+        }).catch(err => console.log(err))
         
-        if(!response || response.status !== 200){
-            throw new Error("post non réussi")
-        }
-
-    } catch (error) {
-        console.log(error)
-        throw new Error("Impossible to send data")
-    }
 }

@@ -31,8 +31,10 @@ export const Login = () => {
                 body: JSON.stringify(data)
             }).then(res => res.json())
             .then(datas => {
-                console.log(datas.message.token)
+                console.log("Token stocké: ",datas.message.token)
+                localStorage.setItem("token",datas.message.token)
                 methods.reset()
+                router.push("/Home");
             })
             .catch(err => console.log(err))
     }

@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import { FriendCarrousel } from "@/components/block/FriendCarrousel/FriendCarrousel";
 import { Header } from "@/components/sections/Header/Header";
@@ -10,25 +9,13 @@ import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
 
 const getUser = async () => {
-    try{
-        const res = await fetch("https://chat-app-api-5pvs.onrender.com/auth",{
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include'
-        })
-        if(!res.ok){
-            console.log(res)
-            throw new Error("HTTP Error status ")
+    const token = localStorage.getItem("token")
+    await fetch("http://localhost:5000/auth",{
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
         }
-        console.log("ok ok ",res)
-        const test = await res.json()
-        console.log("ok ok 2",test.message)
-    }catch(error){
-        throw error
-
-    }
+    })
 }
 
 export default async function Acceuil(){
@@ -61,7 +48,7 @@ export default async function Acceuil(){
                 description="Vous cherchez une manière rapide fluide et intuitive pour rester en connecté avec vos proches,collègues ou communauté ? ChatBot est là pour transformer votre façon de communiquer !"
                 buttonContent="Voir les discussions"
             />
-            <button onClick={()=> getUser()}>test</button>
+            
             <FriendCarrousel/>
             <FeedBack/>
             <Footer/>

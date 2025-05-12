@@ -4,21 +4,36 @@ import { Header } from "@/components/sections/Header/Header";
 import { Hero } from "@/components/sections/Hero/Hero";
 import { NavBar } from "@/components/block/NavBar/NavBar";
 import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
+"use client"
 import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
+import {useEffect} from "react"
 
-const getUser = async () => {
+const getUser =  () => {
     const token = localStorage.getItem("token")
-    await fetch("http://localhost:5000/auth",{
+
+    fetch("http://localhost:5000/auth",{
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
         }
     })
+    .then(res => {
+        if(!res.ok){
+            throw new Error('Acces non autorisé')
+        }
+        return res.json()
+    }).then(datas => {
+        console.log("Données protégées :",datas)
+        return datas
+    }).catch(err => console.log(err))
 }
 
 export default async function Acceuil(){
+    useEffect(()=> {
+        // the getuser function ....
+    },[])
     
     const icoList: IconRouteType[] = [
         {

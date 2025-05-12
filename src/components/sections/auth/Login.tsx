@@ -23,7 +23,7 @@ export const Login = () => {
 
     const onSubmit = async (data: InputFieldType) => {
             // await FormSubmit(data,LOGIN_URL,toast)
-            await fetch(LOGIN_URL,{
+            fetch(LOGIN_URL,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

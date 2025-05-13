@@ -22,33 +22,33 @@ export const Login = () => {
     const methods = useForm<InputFieldType>()
 
     const onSubmit = async (data: InputFieldType) => {
-            // await FormSubmit(data,LOGIN_URL,toast)
-            fetch(LOGIN_URL,{
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }).then(res => res.json())
-            .then(datas => {
-                console.log("Token stocké: ",datas.message.token)
-                localStorage.setItem("token",datas.message.token)
-                methods.reset()
-                router.push("/Home");
-            })
-            .catch(err => console.log(err))
+            // fetch(LOGIN_URL,{
+            //     method: "POST",
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(data)
+            // }).then(res => res.json())
+            // .then(datas => {
+            //     console.log("Token stocké: ",datas.message.token)
+            //     localStorage.setItem("token",datas.message.token)
+            //     methods.reset()
+            //     router.push("/Home");
+            // })
+            // .catch(err => console.log(err))
+            submitForm(data,LOGIN_URL,toast)
     }
 
-    // const {isPending,mutate} = useMutation({
-    //     mutationFn: onSubmit,
-    //     onSuccess: () => {
-    //         console.log("Login successfully")
-    //         methods.reset()
-    //     },
-    //     onError: () => {
-    //         console.log("Login error")
-    //     }
-    // })
+    const {isPending,mutate} = useMutation({
+        mutationFn: onSubmit,
+        onSuccess: () => {
+            console.log("Login successfully")
+            methods.reset()
+        },
+        onError: () => {
+            console.log("Login error")
+        }
+    })
 
     // const onSubmits = (data: InputFieldType) => {
     //     mutate(data)

@@ -1,17 +1,19 @@
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import axios from "axios";
+import { error } from "console";
 
-export const UserPostService = async (data: InputFieldType,URL: string) => {
-    
-        await fetch(URL,{
+export const UserPostService =  (data: InputFieldType,URL: string) => {
+        fetch(URL,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
-        }).then(res => res.json())
-        .then(datas => {
-            console.log(datas.message.token)
-        }).catch(err => console.log(err))
+        }).then(res => {
+            if(!res.ok) {
+                throw new Error("Login error")
+            }
+            return res.json()
+        })
         
 }

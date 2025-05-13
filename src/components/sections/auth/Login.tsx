@@ -75,15 +75,13 @@ export const Login = () => {
                         <input type="checkbox"  />
                         <span className=" text-gray-400 text-sm">Enregistrer le mot de passe</span>
                     </label>
-                    {/* <Link className=" w-full" href="/friend"> */}
                         <button type="submit" className={`bg-yellow-200 p-2 rounded-lg font-semibold w-full`} >
                             <span>
-                                {/* {isPending ? <Loader/> : "Se connecter"} */}
+                                {isPending ? <Loader/> : "Se connecter"}
                                 Se connecter
                             </span>
                             
                         </button>
-                    {/* </Link> */}
                     <div className=" flex justify-center">
                         <Link href="/authentication/Signup" className=" text-sm text-gray-400 hover:text-gray-500 transition-all duration-150">S inscrire</Link>
                     </div>

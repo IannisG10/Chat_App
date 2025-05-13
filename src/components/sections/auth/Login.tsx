@@ -50,12 +50,12 @@ export const Login = () => {
         }
     })
 
-    // const onSubmits = (data: InputFieldType) => {
-    //     mutate(data)
-    // }
+    const onSubmits = (data: InputFieldType) => {
+        mutate(data)
+    }
     return(
         <FormProvider {...methods}>
-            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit(onSubmit)}>
+            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit(onSubmits)}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">

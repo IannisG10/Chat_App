@@ -12,7 +12,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
-const LOGIN_URL = "http://localhost:5000/login"
+const LOGIN_URL = "http://localhost:3500/login"
 
 export const Login = () => {
 
@@ -36,7 +36,7 @@ export const Login = () => {
             //     router.push("/Home");
             // })
             // .catch(err => console.log(err))
-            submitForm(data,LOGIN_URL,toast)
+            await submitForm(data,LOGIN_URL,toast)
     }
 
     const {isPending,mutate} = useMutation({
@@ -78,7 +78,6 @@ export const Login = () => {
                         <button type="submit" className={`bg-yellow-200 p-2 rounded-lg font-semibold w-full`} >
                             <span>
                                 {isPending ? <Loader/> : "Se connecter"}
-                                Se connecter
                             </span>
                             
                         </button>

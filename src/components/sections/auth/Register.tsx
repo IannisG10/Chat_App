@@ -6,7 +6,7 @@ import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import Loader from "@/components/ui/loader";
 import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
-import { FormSubmit } from "@/actions/submitForm";
+import { submitForm } from "@/actions/submitForm";
 import {BiChevronLeft} from "react-icons/bi"
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export const Register = () => {
     const router = useRouter()
     
     const onSubmit =  async (data: InputFieldType)=> {
-        await FormSubmit(data,SIGNUP_URL,toast)
+        await submitForm(data,SIGNUP_URL,toast)
     }
     // Send the data to the server with use Mutation
     const {isPending,mutate} = useMutation({

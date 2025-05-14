@@ -15,7 +15,8 @@ export const UserPostService =  async (data: InputFieldType,URL: string) => {
         return result
 
     }catch(err){
-
+        console.log(err)
+        throw err
     }
     
 }

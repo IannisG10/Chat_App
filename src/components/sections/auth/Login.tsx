@@ -41,13 +41,16 @@ export const Login = () => {
 
     const {isPending,mutate} = useMutation({
         mutationFn: onSubmit,
+        onError: () => {
+            console.log("Login error")
+        },
         onSuccess: () => {
             console.log("Login successfully")
             methods.reset()
+            setTimeout(()=>{
+                router.push("/Home")
+            },1000)
         },
-        onError: () => {
-            console.log("Login error")
-        }
     })
 
     const onSubmits = (data: InputFieldType) => {

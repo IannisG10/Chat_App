@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import {useRouter} from "next/navigation"
 
-const SIGNUP_URL = "https://chat-app-api-5pvs.onrender.com/signup"
+const SIGNUP_URL = "http://localhost:3500/signup"
 
 export const Register = () => {
 
@@ -28,17 +28,17 @@ export const Register = () => {
     // Send the data to the server with use Mutation
     const {isPending,mutate} = useMutation({
         mutationFn: onSubmit,
+        onError: () => {
+            console.log("Erreur d'inscription");
+            methods.reset();
+        },
         onSuccess: (data) => {
             console.log("Inscription réussi",data);
             methods.reset();
             setTimeout(()=>{
                 router.push("/authentication/Signin")
-            },2000)
+            },1000)
         },
-        onError: () => {
-            console.log("Erreur d'inscription");
-            methods.reset();
-        }
     })
 
     const onSubmits = (data: InputFieldType) => {

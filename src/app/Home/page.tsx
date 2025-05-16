@@ -1,38 +1,42 @@
+"use client"
 import React from "react";
 import { FriendCarrousel } from "@/components/block/FriendCarrousel/FriendCarrousel";
 import { Header } from "@/components/sections/Header/Header";
 import { Hero } from "@/components/sections/Hero/Hero";
 import { NavBar } from "@/components/block/NavBar/NavBar";
 import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
-"use client"
 import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
 import {useEffect} from "react"
+import { log } from "console";
 
-const getUser =  () => {
+const getUser =  async () => {
     const token = localStorage.getItem("token")
-
-    fetch("http://localhost:5000/auth",{
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-    .then(res => {
+    try{
+        const res =  await fetch("http://localhost:5000/auth",{
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
         if(!res.ok){
-            throw new Error('Acces non autorisé')
+            console.log("Acces non autorisé")
+            throw new Error("Vous n'avez pas acces à cette page")
         }
-        return res.json()
-    }).then(datas => {
-        console.log("Données protégées :",datas)
-        return datas
-    }).catch(err => console.log(err))
+        console.log(res)
+        return res
+    }catch(err){
+        console.log(err);
+        
+    }
 }
 
-export default async function Acceuil(){
+export default function Acceuil(){
     useEffect(()=> {
         // the getuser function ....
+        console.log("page charge")
+        getUser()
     },[])
     
     const icoList: IconRouteType[] = [

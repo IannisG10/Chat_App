@@ -7,7 +7,7 @@ import Loader from "@/components/ui/loader";
 import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
 import { submitForm } from "@/actions/submitForm";
-import {BiChevronLeft} from "react-icons/bi"
+import {BiChevronLeft} from "react-icons/bi";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";

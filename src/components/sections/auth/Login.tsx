@@ -2,14 +2,14 @@
 import React from "react";
 import { InputAuth } from "@/components/block/Input/InputAuth";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
+import { InputFieldType } from "@/components/block/Input/Input.types";
+import Loader from "@/components/ui/loader";
+import { useToast } from "@/hooks/use-toast";
+import { useAuthentication } from "@/hooks/use-authentication";
 import {BiChevronLeft} from "react-icons/bi"
 import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
-import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
-import { useAuthentication } from "@/actions/submitForm";
-import Loader from "@/components/ui/loader";
-import { useToast } from "@/hooks/use-toast";
 const LOGIN_URL = "http://localhost:3500/login"
 
 export const Login = () => {

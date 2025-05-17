@@ -4,12 +4,12 @@ import { InputAuth } from "@/components/block/Input/InputAuth";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import Loader from "@/components/ui/loader";
+import { useToast } from "@/hooks/use-toast";
+import { useAuthentication } from "@/hooks/use-authentication";
 import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
 import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
-import { useToast } from "@/hooks/use-toast";
-import { useAuthentication } from "@/actions/submitForm";
 
 const SIGNUP_URL = "http://localhost:3500/signup"
 

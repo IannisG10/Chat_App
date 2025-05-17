@@ -14,7 +14,7 @@ type MutationVariable = {
 const router = useRouter()
 const pathname = usePathname()
 
-const useAuthentication = (methods: UseFormReturn) => {
+export const useAuthentication = (methods: UseFormReturn<InputFieldType>) => {
     return useMutation({
         mutationFn: submitForm,
         onSuccess: () => {

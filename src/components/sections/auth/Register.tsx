@@ -6,12 +6,10 @@ import { ExternalAuth } from "@/components/block/ExternalAuth/ExternalAuth";
 import Loader from "@/components/ui/loader";
 import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
-import { submitForm } from "@/actions/submitForm";
-import {BiChevronLeft} from "react-icons/bi";
-import { useMutation } from "@tanstack/react-query";
+import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
-import {useRouter} from "next/navigation"
+import { useAuthentication } from "@/actions/submitForm";
 
 const SIGNUP_URL = "http://localhost:3500/signup"
 
@@ -20,34 +18,38 @@ export const Register = () => {
     const methods = useForm<InputFieldType>()
     const password_value = methods.watch("password")
     const {toast} = useToast();
-    const router = useRouter()
-    
-    const onSubmit =  async (data: InputFieldType)=> {
-        await submitForm(data,SIGNUP_URL,toast)
-    }
-    // Send the data to the server with use Mutation
-    const {isPending,mutate} = useMutation({
-        mutationFn: onSubmit,
-        onError: () => {
-            console.log("Erreur d'inscription");
-            methods.reset();
-        },
-        onSuccess: (data) => {
-            console.log("Inscription réussi",data);
-            methods.reset();
-            setTimeout(()=>{
-                router.push("/authentication/Signin")
-            },1000)
-        },
-    })
+    const {isPending,mutate} = useAuthentication(methods)
 
-    const onSubmits = (data: InputFieldType) => {
-        mutate(data)
+    const onSubmit = (data: InputFieldType) => {
+        mutate({data: data,URL: SIGNUP_URL,toast: toast})
     }
+    
+    // const onSubmit =  async (data: InputFieldType)=> {
+    //     await submitForm(data,SIGNUP_URL,toast)
+    // }
+    // Send the data to the server with use Mutation
+    // const {isPending,mutate} = useMutation({
+    //     mutationFn: onSubmit,
+    //     onError: () => {
+    //         console.log("Erreur d'inscription");
+    //         methods.reset();
+    //     },
+    //     onSuccess: (data) => {
+    //         console.log("Inscription réussi",data);
+    //         methods.reset();
+    //         setTimeout(()=>{
+    //             router.push("/authentication/Signin")
+    //         },1000)
+    //     },
+    // })
+
+    // const onSubmits = (data: InputFieldType) => {
+    //     mutate(data)
+    // }
     return(
         <FormProvider {...methods}>
             <form className="  flex justify-center items-center h-screen" 
-                    onSubmit={methods.handleSubmit(onSubmits)}>
+                    onSubmit={methods.handleSubmit(onSubmit)}>
                 <div className="flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <Link href="/" className=" flex justify-between items-center w-full">
                         <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>

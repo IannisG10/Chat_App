@@ -7,58 +7,57 @@ import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import Link from "next/link";
-import { submitForm } from "@/actions/submitForm";
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useAuthentication } from "@/actions/submitForm";
 import Loader from "@/components/ui/loader";
 import { useToast } from "@/hooks/use-toast";
 const LOGIN_URL = "http://localhost:3500/login"
 
 export const Login = () => {
-
     const {toast} = useToast() 
-    const router = useRouter()
     
     const methods = useForm<InputFieldType>()
-
-    const onSubmit = async (data: InputFieldType) => {
-            // fetch(LOGIN_URL,{
-            //     method: "POST",
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(data)
-            // }).then(res => res.json())
-            // .then(datas => {
-            //     console.log("Token stocké: ",datas.message.token)
-            //     localStorage.setItem("token",datas.message.token)
-            //     methods.reset()
-            //     router.push("/Home");
-            // })
-            // .catch(err => console.log(err))
-            await submitForm(data,LOGIN_URL,toast)
+    const {isPending,mutate} = useAuthentication(methods)
+    const onSubmit = (data: InputFieldType) => {
+        mutate({data: data,URL: LOGIN_URL, toast: toast})
     }
+    // const onSubmit = async (data: InputFieldType) => {
+    //         // fetch(LOGIN_URL,{
+    //         //     method: "POST",
+    //         //     headers: {
+    //         //         'Content-Type': 'application/json'
+    //         //     },
+    //         //     body: JSON.stringify(data)
+    //         // }).then(res => res.json())
+    //         // .then(datas => {
+    //         //     console.log("Token stocké: ",datas.message.token)
+    //         //     localStorage.setItem("token",datas.message.token)
+    //         //     methods.reset()
+    //         //     router.push("/Home");
+    //         // })
+    //         // .catch(err => console.log(err))
+    //         await submitForm(data,LOGIN_URL,toast)
+    // }
 
-    const {isPending,mutate} = useMutation({
-        mutationFn: onSubmit,
-        onError: () => {
-            console.log("Login error")
-        },
-        onSuccess: () => {
-            console.log("Login successfully")
-            methods.reset()
-            setTimeout(()=>{
-                router.push("/Home")
-            },1000)
-        },
-    })
+    // const {isPending,mutate} = useMutation({
+    //     mutationFn: onSubmit,
+    //     onError: () => {
+    //         console.log("Login error")
+    //     },
+    //     onSuccess: () => {
+    //         console.log("Login successfully")
+    //         methods.reset()
+    //         setTimeout(()=>{
+    //             router.push("/Home")
+    //         },1000)
+    //     },
+    // })
 
-    const onSubmits = (data: InputFieldType) => {
-        mutate(data)
-    }
+    // const onSubmits = (data: InputFieldType) => {
+    //     mutate(data)
+    // }
     return(
         <FormProvider {...methods}>
-            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit(onSubmits)}>
+            <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit(onSubmit)}>
                 <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">

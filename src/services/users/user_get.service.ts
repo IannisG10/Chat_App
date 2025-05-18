@@ -6,7 +6,7 @@ type MutationParams = {
 
 export const userGetService = async () => {
     try{
-        const res = await fetch("",{
+        const res = await fetch("http://localhost:3500/auth",{
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -16,7 +16,7 @@ export const userGetService = async () => {
             throw new Error("Accès non autorisé")
         }
 
-        return res;
+        return res.json();
     }catch(err){
         throw err
     }

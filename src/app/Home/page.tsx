@@ -8,36 +8,10 @@ import { FeedBack } from "@/components/sections/FeedBack/FeedBack";
 import { Footer } from "@/components/sections/Footer/Footer";
 import { IconRouteType } from "@/components/sections/Header/Header.types";
 import {BiBell,BiLogOutCircle,BiMessageRounded} from "react-icons/bi"
-import {useEffect} from "react"
-import { log } from "console";
-
-const getUser =  async () => {
-    const token = localStorage.getItem("token")
-    try{
-        const res =  await fetch("http://localhost:5000/auth",{
-            method: "GET",
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        if(!res.ok){
-            console.log("Acces non autorisé")
-            throw new Error("Vous n'avez pas acces à cette page")
-        }
-        console.log(res)
-        return res
-    }catch(err){
-        console.log(err);
-        
-    }
-}
+import { useFethUser } from "@/hooks/use-fetchUsers";
 
 export default function Acceuil(){
-    useEffect(()=> {
-        // the getuser function ....
-        console.log("page charge")
-        getUser()
-    },[])
+    
     
     const icoList: IconRouteType[] = [
         {
@@ -53,6 +27,8 @@ export default function Acceuil(){
             iconComponent: <BiLogOutCircle size={27}/>
         }
     ]
+
+    const {data: user} = useFethUser()
     return(
         <div className="p-4">
             <Header
@@ -63,7 +39,7 @@ export default function Acceuil(){
                 iconList={icoList}
             />
             <Hero
-                titleHero="Bienvenue à ChatBot, GUERRA Iannis"
+                titleHero={`Bienvenue à ChatBot, ${user.id}`}
                 description="Vous cherchez une manière rapide fluide et intuitive pour rester en connecté avec vos proches,collègues ou communauté ? ChatBot est là pour transformer votre façon de communiquer !"
                 buttonContent="Voir les discussions"
             />

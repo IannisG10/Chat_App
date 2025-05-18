@@ -15,37 +15,15 @@ const SIGNUP_URL = "http://localhost:3500/signup"
 
 export const Register = () => {
 
-    const methods = useForm<InputFieldType>()
-    const password_value = methods.watch("password")
+    const methods = useForm<InputFieldType>();
+    const password_value = methods.watch("password");
     const {toast} = useToast();
     const {isPending,mutate} = useAuthentication(methods)
 
     const onSubmit = (data: InputFieldType) => {
         mutate({data: data,URL: SIGNUP_URL,toast: toast})
     }
-    
-    // const onSubmit =  async (data: InputFieldType)=> {
-    //     await submitForm(data,SIGNUP_URL,toast)
-    // }
-    // Send the data to the server with use Mutation
-    // const {isPending,mutate} = useMutation({
-    //     mutationFn: onSubmit,
-    //     onError: () => {
-    //         console.log("Erreur d'inscription");
-    //         methods.reset();
-    //     },
-    //     onSuccess: (data) => {
-    //         console.log("Inscription réussi",data);
-    //         methods.reset();
-    //         setTimeout(()=>{
-    //             router.push("/authentication/Signin")
-    //         },1000)
-    //     },
-    // })
 
-    // const onSubmits = (data: InputFieldType) => {
-    //     mutate(data)
-    // }
     return(
         <FormProvider {...methods}>
             <form className="  flex justify-center items-center h-screen" 

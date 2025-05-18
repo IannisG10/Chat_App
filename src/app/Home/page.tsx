@@ -26,8 +26,7 @@ export default function Acceuil(){
             href: "/",
             iconComponent: <BiLogOutCircle size={27}/>
         }
-    ]
-
+    ];
     const {data: user} = useFethUser()
     return(
         <div className="p-4">
@@ -43,7 +42,6 @@ export default function Acceuil(){
                 description="Vous cherchez une manière rapide fluide et intuitive pour rester en connecté avec vos proches,collègues ou communauté ? ChatBot est là pour transformer votre façon de communiquer !"
                 buttonContent="Voir les discussions"
             />
-            
             <FriendCarrousel/>
             <FeedBack/>
             <Footer/>

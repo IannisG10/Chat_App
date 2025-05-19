@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuthentication } from "@/hooks/use-authentication";
 import { FormProvider } from "react-hook-form";
 import {useForm} from "react-hook-form";
+import { useRouter,usePathname } from "next/navigation";
 import {BiChevronLeft} from "react-icons/bi"
 import Link from "next/link";
 
@@ -18,7 +19,9 @@ export const Register = () => {
     const methods = useForm<InputFieldType>();
     const password_value = methods.watch("password");
     const {toast} = useToast();
-    const {isPending,mutate} = useAuthentication(methods)
+    const router = useRouter()
+    const pathname = usePathname()
+    const {isPending,mutate} = useAuthentication(methods,router,pathname)
 
     const onSubmit = (data: InputFieldType) => {
         mutate({data: data,URL: SIGNUP_URL,toast: toast})
@@ -26,9 +29,9 @@ export const Register = () => {
 
     return(
         <FormProvider {...methods}>
-            <form className="  flex justify-center items-center h-screen" 
+            <form className="flex justify-center items-center h-screen" 
                     onSubmit={methods.handleSubmit(onSubmit)}>
-                <div className="flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
+                <div className="flex flex-col justify-center  gap-3 md:w-1/3 w-2/3">
                     <Link href="/" className=" flex justify-between items-center w-full">
                         <BiChevronLeft size={35} className=" p-1 cursor-pointer rounded-full hover:bg-gray-50"/>
                         <h3 className="text-3xl font-bold">S inscrire</h3>

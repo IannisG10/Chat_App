@@ -10,13 +10,16 @@ import {BiChevronLeft} from "react-icons/bi"
 import {FormProvider} from "react-hook-form"
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 const LOGIN_URL = "http://localhost:3500/login"
 
 export const Login = () => {
     const {toast} = useToast() 
     
     const methods = useForm<InputFieldType>()
-    const {isPending,mutate} = useAuthentication(methods)
+    const router = useRouter();
+    const pathname =  usePathname()
+    const {isPending,mutate} = useAuthentication(methods,router,pathname)
     const onSubmit = (data: InputFieldType) => {
         mutate({data: data,URL: LOGIN_URL, toast: toast})
     }
@@ -58,7 +61,7 @@ export const Login = () => {
     return(
         <FormProvider {...methods}>
             <form className=" flex justify-center items-center h-screen" onSubmit={methods.handleSubmit(onSubmit)}>
-                <div className=" flex flex-col justify-center  gap-3 md:w-1/4 w-2/3">
+                <div className=" flex flex-col justify-center  gap-3 md:w-1/3 w-2/3">
                     <div className=" flex justify-between items-center w-full">
                         <Link href="/" className=" p-1 hover:bg-gray-50 rounded-full cursor-pointer">
                             <BiChevronLeft size={28} />

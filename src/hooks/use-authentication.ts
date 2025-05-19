@@ -3,11 +3,15 @@ import { submitForm } from "@/actions/submitForm";
 import { InputFieldType } from "@/components/block/Input/Input.types";
 import { UseFormReturn } from "react-hook-form";
 import { usePathname,useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-const router = useRouter()
-const pathname =  usePathname()
 
-export const useAuthentication = (methods: UseFormReturn<InputFieldType>) => {
+
+
+export const useAuthentication = (
+        methods: UseFormReturn<InputFieldType>,
+        router: AppRouterInstance,pathname: string) => {
+
     return useMutation({
         mutationFn: submitForm,
         onSuccess: () => {

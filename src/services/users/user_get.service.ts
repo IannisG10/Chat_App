@@ -1,10 +1,6 @@
-const token = localStorage.getItem("token")
-
-type MutationParams = {
-    URL: string
-}
 
 export const userGetService = async () => {
+    const token = localStorage.getItem("token")
     try{
         const res = await fetch("http://localhost:3500/auth",{
             method: 'GET',

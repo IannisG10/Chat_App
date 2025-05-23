@@ -4,9 +4,6 @@ import { InputFieldType } from "@/components/block/Input/Input.types";
 import { UseFormReturn } from "react-hook-form";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-
-
-
 export const useAuthentication = (
         methods: UseFormReturn<InputFieldType>,
         router: AppRouterInstance,pathname: string) => {

@@ -38,7 +38,7 @@ export default function Acceuil(){
                 iconList={icoList}
             />
             <Hero
-                titleHero={`Bienvenue à ChatBot, ${user.id}`}
+                titleHero={`Bienvenue à ChatBot, ${user}`}
                 description="Vous cherchez une manière rapide fluide et intuitive pour rester en connecté avec vos proches,collègues ou communauté ? ChatBot est là pour transformer votre façon de communiquer !"
                 buttonContent="Voir les discussions"
             />
